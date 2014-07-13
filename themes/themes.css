@@ -1,3 +1,14 @@
+@font-face {
+    font-family: "Zapfino";
+    src:url("font/Zapfino.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Zapfino";
+    src: url(//:) format("no404"), url("font/Zapfino.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{ margin:0; padding:0; }
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{ display:block; }
 html{ font-family:"Microsoft YaHei", Arial; }
@@ -16,6 +27,9 @@ a:visited{ text-decoration:none; }
 a:hover{ color:#247df5; color:#1663ff; }
 em,b{ font-style:normal; }
 
+/*logo*/
+.logo{ width:100%; background:#c2ad8f; padding:20px 10px 10px; text-align:center; box-sizing:border-box; }
+.logo img{ height:100%; display:block; margin:0 auto; width:200px; }
 
 /*img list*/
 .img_list_01{ width:100%; }
@@ -31,6 +45,18 @@ em,b{ font-style:normal; }
 .img_list_01 li dt{ font:bold 20px/25px Arial; }
 .img_list_01 li dd{ font:14px/20px Arial; }
 .img_list_01 article{ padding:10px; font:14px/20px Arial; }
+
+.img_list_02{ width:100%; }
+.img_list_02 li{ position:relative; width:100%; color:#fff; text-shadow:1px 1px 0 rgba(0,0,0,.3); text-align:center; }
+.img_list_02 li a{ color:#fff; }
+.img_list_02 li img{ width:100%; display:block; }
+.img_list_02 li dl{
+	position:absolute; z-index:1; left:0; bottom:0; padding:10px; width:100%;
+	background:-webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,.6));
+	box-sizing:border-box;
+}
+.img_list_02 li dt{ font:20px/40px Zapfino; }
+.img_list_02 li dd{ font:16px/23px Arial; }
 
 
 /*title*/
@@ -126,3 +152,34 @@ em,b{ font-style:normal; }
 .icon_restaurant{ background:url(images/icon_restaurant.png) no-repeat center center; background-size:100% 100%; }
 .icon_hotel{ background:url(images/icon_hotel.png) no-repeat center center; background-size:100% 100%; }
 .icon_shopping{ background:url(images/icon_shopping.png) no-repeat center center; background-size:100% 100%; }
+
+
+/*content*/
+.content{ width:100%; }
+.content h3{ font-family:"Zapfino"; text-align:center; padding:0 10px; font-weight:bold; }
+.content h3 div{ background:url(images/line_01.jpg?v=4) repeat-x center center; background-size:11px auto; }
+.content h3 span{
+	display:inline-block; color:#fff; text-align:center; width:80px; height:80px; background:#c2ad8f; line-height:80px; font-size:12px;
+	border-radius:40px;
+}
+.content .this_img{ padding:10px 0; width:100%; }
+.content .this_img img{ display:block; width:100%; }
+
+.content .this_title_01,
+.content .this_title_02{ text-align:center; color:#c2ad8f; font-size:14px; padding:10px 0; }
+.content .this_title_02{
+	background:url(images/line_01.jpg) repeat-x center top; background-size:11px auto;
+	font-family:"Zapfino"; margin:0 10px; padding:20px 0; line-height:30px;
+}
+.content .this_title_01 dt{ font-family:"Zapfino"; line-height:30px; }
+.content .this_title_01 dd{ line-height:24px; font-size:18px; font-weight:bold; }
+.content .this_title_02 dt{ font-size:12px;  }
+.content .this_title_02 dd{ font-weight:bold; }
+
+.content .this_detail{ padding:20px 10px; }
+.content .this_detail dt{ color:#c2ad8f; font-size:16px; line-height:30px; }
+.content .this_detail dd{ padding-left:20px; position:relative; color:#888; line-height:20px; }
+.content .this_detail dd:before{ width:8px; height:8px; background:#c2ad8f; position:absolute; left:3px; top:6px; content:""; display:block; }
+
+.content .this_text{ padding:10px; line-height:20px; }
+.content .this_text strong{ font-size:16px; line-height:24px; }

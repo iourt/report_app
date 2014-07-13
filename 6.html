@@ -6,9 +6,27 @@
     	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     	<meta name="format-detection" content="telephone=no" />
         <link rel="stylesheet" href="themes/themes.css" type="text/css" />
-        <script type="text/javascript" src="themes/js/app.js"></script>
+
+        <script src="themes/js/jquery.min-1.8.2.js"></script>
+        <script src="themes/js/jquery.bxslider.min.js"></script>
+        <link href="themes/jquery.bxslider.css" rel="stylesheet" />
     </head>
     <body>
+        <ul class="bxslider">
+            <li><img src="themes/temp/1.jpg" /></li>
+            <li><img src="themes/temp/2.jpg" /></li>
+            <li><img src="themes/temp/3.jpg" /></li>
+            <li><img src="themes/temp/4.jpg" /></li>
+        </ul>
+        <script type="text/javascript">
+            $(function(){
+                $('.bxslider').bxSlider({
+                    touchEnabled: false,
+                    controls: false,
+                    auto: true
+                });
+            })();
+        </script>
 
         <h1 class="title_02">马来西亚 Malaysia</h1>
 
