@@ -61,7 +61,7 @@ em,b{ font-style:normal; }
 
 /*title*/
 .title_01{ color:#f0433e; font:bold 20px/40px Arial; text-align:center; border-bottom:5px solid #f0433e; }
-.title_02{ width:100%; font:bold 20px/40px Arial; color:#f0433e; padding:0 10px; box-sizing:border-box; text-align:center; }
+.title_02{ width:100%; font:bold 20px/20px Arial; color:#f0433e; padding:10px; box-sizing:border-box; text-align:center; }
 
 
 /*detail*/
