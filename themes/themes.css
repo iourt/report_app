@@ -29,7 +29,7 @@ em,b{ font-style:normal; }
 
 /*logo*/
 .logo{ width:100%; background:#c2ad8f; padding:20px 10px 10px; text-align:center; box-sizing:border-box; }
-.logo img{ height:100%; display:block; margin:0 auto; width:200px; }
+.logo img{ display:block; margin:0 auto; width:200px; }
 
 /*img list*/
 .img_list_01{ width:100%; }
