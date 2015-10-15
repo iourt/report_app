@@ -1,0 +1,37 @@
+<dl class="mod_filter">
+    <dt ngd-click="resetFilter($event)" selector="li">
+        <label>筛选项：</label>
+        <ul>
+            <li ng-repeat="(k, v) in Filter.Options track by $index" data-id="{{v.id}}" data-type="{{v.type}}" data-text="{{v.text}}">
+                {{v.text}}
+            </li>
+        </ul>
+    </dt>
+
+    <!-- 下载量统计 -->
+    <dd ng-if="FilterPage=='data'" ngd-click="setFilter($event)" selector="li">
+<!-- 		<div>
+    	    <label>时间：</label>
+    	    <ul>
+    	        <li data-id="1" data-type="c" data-text="Android 市场">Android 市场</li>
+    	        <li data-id="2" data-type="c" data-text="360">360</li>
+    	        <li data-id="3" data-type="c" data-text="AppStore">AppStore</li>
+    	    </ul>
+    	</div>
+        <div>
+            <label>周期：</label>
+            <ul>
+                <li data-id="day" data-type="a" data-text="按天">按天</li>
+                <li data-id="week" data-type="a" data-text="按周">按周</li>
+                <li data-id="month" data-type="a" data-text="按月">按月</li>
+            </ul>
+        </div> -->
+        <div>
+            <label>客户端：</label>
+            <ul>
+                <li data-id="ios" data-type="b" data-text="IOS">IOS</li>
+                <li data-id="android" data-type="b" data-text="Android">Android</li>
+            </ul>
+        </div>
+    </dd>
+</dl>

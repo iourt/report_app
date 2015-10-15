@@ -1,0 +1,37 @@
+<h2>总体数据</h2>
+<ul class="mod_table mb10">
+    <li ng-repeat="(k, v) in DataList.Basic track by $index">
+        <p>{{v.name}}</p>
+        <p>{{v.num}}</p>
+    </li>
+</ul>
+
+
+<h2>筛选条件</h2>
+<!-- 时间切换 -->
+<tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
+<filter-bar type="data" class="mb10" callback="getData"></filter-bar>
+<!-- <tab-data callback='getData'></tab-data> -->
+
+<!-- <div id="chart" class="mb10" style="width:{{Page.X}}"></div> -->
+<view-charts></view-charts>
+
+<h2>数据明细</h2>
+<section class="mod_blank">
+    <dl class="list_table">
+        <dt>
+            <p>日期</p>
+            <p>激活用户（{{a1}}）</p>
+            <p>注册用户（{{a2}}）</p>
+            <p>认证用户（{{a3}}）</p>
+            <p>开通小区（{{a4}}）</p>
+        </dt>
+        <dd ng-repeat="(k, v) in DataList.List track by $index">
+            <p>{{v.date}}</p>
+            <p>{{v.cate_1}}</p>
+            <p>{{v.cate_2}}</p>
+            <p>{{v.cate_3}}</p>
+            <p>{{v.cate_4}}</p>
+        </dd>
+    </dl>
+</section>

@@ -1,0 +1,174 @@
+﻿.mod_calendar_group {
+    position: relative;
+    width: 200px;
+    height: 30px;
+
+    .calendar_input {
+        width: 160px;
+        line-height: 28px;
+        text-align: center;
+        background: #fff;
+        cursor: pointer;
+        @include border-half($type: all);
+        @include icon(
+            $type: "\f35f",
+            $elem: after,
+            $color: #ccc
+        );
+        &:after {
+            margin-left: 5px
+        };
+    }
+
+    .calendar {
+        // display: none;
+        @include position($left: 0, $top: 30px, $index: 10);
+
+        width: 600px;
+        background: #f8f8f8;
+        // background: #fff;
+        @include border-half($type: all);
+        @include bottom-shadow();
+
+        dl{
+            // margin-bottom: 10px;
+            dt,
+            dd {
+                line-height: 40px;
+                text-align: center;
+                @include box();
+                
+                div {
+                    cursor: pointer;
+                    @include box($align: center);
+                    width: 30px;
+                    text-align: center;
+                }
+            }
+
+            dt {
+                background: #666;
+                color: #fff;
+                margin-bottom: 10px;
+                border-bottom: 1px solid #fff;
+                h3 {
+                    // color: #333;
+                    font-size: 14px;
+                    font-weight: normal;
+                    width: 0;
+                    cursor: default;
+                    -webkit-box-flex: 1;
+                }
+                div {
+                    @include icon($color: #fff, $width: 30px);
+                    &:last-child {
+                        &:before {
+                            content: "\f3d3";
+                        }
+                    }
+                }
+            }
+            dd {
+                div {
+                    @include icon($type: "\f107", $color: #666, $width: 30px);
+                    &:last-child {
+                        &:before {
+                            content: "\f10a";
+                        }
+                    }
+                }
+                section {
+                    width: 0;
+                    -webkit-box-flex: 1;
+                    &:nth-child(2) {
+                        border-right: 5px solid #f8f8f8;
+                    }
+                    &:nth-child(3) {
+                        border-left: 5px solid #f8f8f8;
+                    }
+                    ul {
+                        width: 100%;
+                        background: #f8f8f8;
+                        &:nth-child(1) {
+                            background: #eee;
+                        }
+                        li {
+                            @include box();
+                            p,i {
+                                display: block;
+                                line-height: 30px;
+                                width: 0;
+                                -webkit-box-flex: 1;
+                                @include border-half($type: all);
+                                // &.today {
+                                //     background: $green;
+                                // }
+                                &.disable {
+                                    color: #ccc;
+                                    cursor: default;
+                                }
+                                &.select {
+                                    color: #fff;
+                                    background: $green;
+                                }
+                            }
+                            i {
+                                cursor: default;
+                            }
+                            p {
+                                cursor: pointer;
+								background: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        h4 {
+            padding-top: 10px;
+            text-align: center;
+            color: $green;
+            line-height: 20px;
+            font-weight: normal;
+        }
+
+        .calendar_btn {
+            padding: 10px;
+            // background: #ddd;
+            @include box($align: center);
+            input {
+                display: block;
+                line-height: 20px;
+                padding: 5px 0;
+                border: none;
+                // width: 80px;
+                text-align: left;
+                color: #444;
+                background: none;
+            }
+            div {
+                // margin-left: 10px;
+                // -webkit-box-flex: 1;
+            }
+            blank {
+                display: block;
+                -webkit-box-flex: 1;
+            }
+            p {
+                display: block;
+                width: 90px;
+                line-height: 30px;
+                text-align: center;
+                margin-right: 10px;
+                cursor: pointer;
+                color: #fff;
+                background: $green;
+                @include border-half($type: all);
+                &:last-child {
+                    background: #ccc;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,189 @@
+﻿.mod_header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    display: block;
+    font-size: 14px;
+
+    -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    ul {
+        background: $green;
+        height: 50px;
+        @include box($align: center);
+        li {
+            display: block;
+            padding: 0 10px;
+            line-height: 20px;
+            margin: 0 10px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            a {
+                color: #fff;
+            }
+            &.current {
+                color: #000;
+            }
+            &:nth-child(1) {
+                // font-size: 20px;
+            }
+        }
+    }
+
+    div {
+        line-height: 30px;
+        @include box($align: center);
+    }
+}
+
+
+
+
+.mod_wrapper {
+    width: 100%;
+    // display: table;
+    @include box();
+    .table_left,
+    .table_mid,
+    .table_right {
+        // display: table-cell;
+        display: block;
+    }
+    .table_left {
+        width: $left;
+        &.no_sub {
+            width: 60px;
+        }
+    }
+    .table_mid {
+        // padding-top: 0;
+        // padding-left: 10px;
+        // padding-bottom: 10px;
+        vertical-align: top;
+
+        padding: 0 10px 10px;
+        width: 0;
+        -webkit-box-flex: 1;
+    }
+    .table_right {
+        width: 10px;
+    }
+}
+
+.mod_submenu {
+    @include box();
+    .t_menu_icon {
+        width: 60px;
+        li {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            @include icon(
+                $color: #fff,
+                $display: block,
+                $size: 35px
+            );
+			&.current {
+				color: #000;
+				&:before {
+					color: #000;
+				}
+			}
+            &.icon_01:before {
+                content: "\f493";
+            }
+            &.icon_02:before {
+                content: "\f483";
+            }
+            &.icon_03:before {
+                content: "\f453";
+            }
+            &.icon_04:before {
+                content: "\f471";
+            }
+            &.icon_05:before {
+                content: "\f3b1";
+            }
+            &.icon_06:before {
+                content: "\f119";
+            }
+        }
+    }
+
+    .t_menu_list {
+        width: 0;
+        -webkit-box-flex: 1;
+        li {
+            line-height: 40px;
+            padding-left: 10px;
+            cursor: pointer;
+            &.current {
+                background: $green;
+                background: #ccc;
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+.mod_menu {
+    // position: fixed;
+    // left: 0;
+    // top: 60px;
+    width: 150px;
+
+    display: none;
+    p {
+        line-height: 30px;
+        text-indent: 10px;
+    }
+    dl {
+        dt {
+            padding: 5px 0;
+            line-height: 20px;
+            background: #ddd;
+            color: #000;
+            text-indent: 5px;
+            font-size: 14px;
+            // @include border-half($type: bottom);
+            // border-bottom: 2px solid #fff;
+
+            @include icon($color: #000);
+            &.icon_01:before {
+                content: "\f493";
+                margin-right: 5px;
+            }
+            &.icon_02:before {
+                content: "\f453";
+                margin-right: 5px;
+            }
+            &.icon_03:before {
+                content: "\f483";
+                margin-right: 5px;
+            }
+        }
+        dd {
+            ul {
+                li {
+                    padding-left: 10px;
+                    line-height: 40px;
+                    cursor: pointer;
+                    color: #666;
+                }
+            }
+        } 
+    }
+    p, li {
+        &.current {
+            background: $green;
+            color: #fff;
+        }
+    }
+}
