@@ -1,0 +1,16 @@
+{
+	"name": "report",
+	"version": "1.0.0",
+	"main": "",
+	"ignore": [],
+	"dependencies": {
+		"angular": "1.4.5",
+		"angular-touch": "1.4.5",
+		"angular-route": "1.4.5",
+		"angular-ui-router": "0.2.15",
+		"angular-animate": "1.4.5",
+		"angular-bindonce": "0.3.3",
+		"highcharts-ng": "0.0.10"
+	},
+	"private": true
+}

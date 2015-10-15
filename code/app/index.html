@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="Huijm">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Report</title>
+        <!-- build:css -->
+        <link rel="stylesheet" href="themes/all.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-class="{tbody: showHeader, tbodys: HideSub}">
+
+        <div ui-view></div>
+
+        <div ng-if="isLoading" class="loading"></div>
+
+        <!-- build:js -->
+        <!-- injectlib:js -->
+        <script src="lib/angular.js"></script>
+        <script src="lib/highcharts.js"></script>
+        <script src="lib/jquery-1.8.3.min.js"></script>
+        <script src="lib/md5.js"></script>
+        <!-- endinject -->
+
+        <!-- injectframe:js -->
+        <script src="frame/angular-animate.js"></script>
+        <script src="frame/angular-route.js"></script>
+        <script src="frame/angular-sanitize.js"></script>
+        <script src="frame/angular-touch.js"></script>
+        <script src="frame/angular-ui-router.js"></script>
+        <script src="frame/bindonce.js"></script>
+        <script src="frame/ionic-angular.js"></script>
+        <script src="frame/ionic.js"></script>
+        <!-- endinject -->
+
+
+        <script src="app.js"></script>
+        <!-- injectcommon:js -->
+        <script src="common/base64.js"></script>
+        <script src="common/cache_service.js"></script>
+        <script src="common/filters.js"></script>
+        <script src="common/http_interceptor.js"></script>
+        <script src="common/showtime.js"></script>
+        <script src="common/widget.js"></script>
+        <script src="common/directives/calendar.js"></script>
+        <script src="common/directives/calendar_group.js"></script>
+        <script src="common/directives/charts.js"></script>
+        <script src="common/directives/delegate_event.js"></script>
+        <script src="common/directives/filter_bar.js"></script>
+        <script src="common/directives/header_bar.js"></script>
+        <script src="common/directives/menu_bar.js"></script>
+        <script src="common/directives/router_redirect.js"></script>
+        <script src="common/directives/tab.js"></script>
+        <!-- endinject -->
+        
+
+        <!-- inject:js -->
+        <script src="code/js/base_data.js"></script>
+        <script src="code/js/base_user.js"></script>
+        <script src="code/js/certificate.js"></script>
+        <script src="code/js/client.js"></script>
+        <script src="code/js/count.js"></script>
+        <script src="code/js/index.js"></script>
+        <script src="code/js/login.js"></script>
+        <script src="code/js/page_detail.js"></script>
+        <script src="code/js/page_list.js"></script>
+        <script src="code/js/register.js"></script>
+        <!-- endinject -->
+        <!-- endbuild -->
+    </body>
+</html>
