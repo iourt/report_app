@@ -1,37 +1,44 @@
-<h2>总体数据</h2>
-<ul class="mod_table mb10">
-    <li ng-repeat="(k, v) in DataList.Basic track by $index">
-        <p>{{v.name}}</p>
-        <p>{{v.num}}</p>
-    </li>
-</ul>
+<header-bar title="数据概况"></header-bar>
 
+<ion-view>
+    <ion-content overflow-scroll="true" class="mod_wrapper mb20">
+        <div class="mod_blank mb10">
+            <h2>总体数据</h2>
+            <ul class="mod_table">
+                <li ng-repeat="(k, v) in DataList.Basic track by $index">
+                    <div>
+                        <p>{{v.name}}</p>
+                        <p>{{v.num}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-<h2>筛选条件</h2>
-<!-- 时间切换 -->
-<tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
-<filter-bar type="data" class="mb10" callback="getData"></filter-bar>
-<!-- <tab-data callback='getData'></tab-data> -->
+        <div class="mod_blank mb10">
+            <h2>筛选条件</h2>
+            <filter-bar type="data" callback="getData"></filter-bar>
+            <!-- <tab-data callback='getData'></tab-data> -->
+        </div>
 
-<!-- <div id="chart" class="mb10" style="width:{{Page.X}}"></div> -->
-<view-charts></view-charts>
-
-<h2>数据明细</h2>
-<section class="mod_blank">
-    <dl class="list_table">
-        <dt>
-            <p>日期</p>
-            <p>激活用户（{{a1}}）</p>
-            <p>注册用户（{{a2}}）</p>
-            <p>认证用户（{{a3}}）</p>
-            <p>开通小区（{{a4}}）</p>
-        </dt>
-        <dd ng-repeat="(k, v) in DataList.List track by $index">
-            <p>{{v.date}}</p>
-            <p>{{v.cate_1}}</p>
-            <p>{{v.cate_2}}</p>
-            <p>{{v.cate_3}}</p>
-            <p>{{v.cate_4}}</p>
-        </dd>
-    </dl>
-</section>
+        <div class="mod_blank">
+            <h2>数据明细</h2>
+            <ion-scroll direction="x" scrollbar-x="false" locking="false" class="mod_scroll">
+                <ul ngd-click="changeData($event)" selector="li">
+                    <li data-id="1" ng-class="{current: Cate.id==1}">激活用户({{a1}})</li>
+                    <li data-id="2" ng-class="{current: Cate.id==2}">注册用户({{a2}})</li>
+                    <li data-id="3" ng-class="{current: Cate.id==3}">认证用户({{a3}})</li>
+                    <li data-id="4" ng-class="{current: Cate.id==4}">开通小区({{a4}})</li>
+                </ul>
+            </ion-scroll>
+            <dl class="list_table">
+                <dd ng-repeat="(k, v) in DataList.List track by $index">
+                    <p style="width:100px;">{{v.date}}</p>
+                    <p ng-show="Cate.id == 1">{{v.cate_1}}</p>
+                    <p ng-show="Cate.id == 2">{{v.cate_2}}</p>
+                    <p ng-show="Cate.id == 3">{{v.cate_3}}</p>
+                    <p ng-show="Cate.id == 4">{{v.cate_4}}</p>
+                </dd>
+            </dl>
+        </div>
+    </ion-content>
+</ion-view>

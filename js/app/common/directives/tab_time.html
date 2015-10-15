@@ -1,15 +1,14 @@
 <div class="mod_tab_01 mb10">
-    <ul ngd-click="setTime($event)" selector="li" class="t_type">
+ <!--    <ul ngd-click="setTime($event)" selector="li" class="t_type">
         <li data-type="today" ng-class="{current: Page.TimeType == 'today'}" ng-if="!hideToday">今天</li>
         <li data-type="yesterday" ng-class="{current: Page.TimeType == 'yesterday'}" ng-if="!hideYesterday">昨天</li>
         <li data-type="week" ng-class="{current: Page.TimeType == 'week'}">最近7天</li>
         <li data-type="month" ng-class="{current: Page.TimeType == 'month'}">最近30天</li>
-    </ul>
+    </ul> -->
 
     <div class="t_calendar" ng-show="tShowCalendar">
         <!-- <calendar ng-model="Page.Calendar" fun="ko"></calendar> -->
         <calendar-group ng-model="Page.Calendar"></calendar-group>
-        <!-- <calendar-group ng-model="Page.Calendar2"></calendar-group> -->
     </div>
 
     <div class="t_blank"></div>

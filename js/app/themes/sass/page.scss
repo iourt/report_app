@@ -1,7 +1,56 @@
-﻿h2 {
+﻿.mod_wrapper {
+    // padding: 10px;
+    padding-top: 10px;
+}
+.mod_blank {
+    background: #fff;
+    padding: 0 10px;
+}
+
+.mod_scroll {
+    background: #f8f8f8;
+    ul {
+        @include box();
+        li {
+            margin-right: 10px;
+            line-height: 20px;
+            padding: 10px;
+            background: #f8f8f8;
+            &.current {
+                background: $green;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.mod_index {
+    padding: 0 5px;
+    @include box();
+    li {
+        width: 0;
+        -webkit-box-flex: 1;
+        padding: 0 5px;
+        display: block;
+        text-align: center;
+        margin: 0 5px;
+        background: #eee;
+        padding: 10px;
+        line-height: 30px;
+        @include icon($elem: before, $display: block, $size: 30px);
+        &.icon_base_data:before {
+            content: "\f471";
+        }
+        &.icon_base_user:before {
+            content: "\f3b1";
+        }
+    }
+}
+
+h2 {
     line-height: 30px;
     margin-bottom: 10px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     // background: #eee;
     // color: $green;
@@ -104,45 +153,34 @@
     }
 }
 
-
-// .mod_filter {
-//     @include box();
-//     margin-bottom: 10px;
-//     li {
-//         display: block;
-//         line-height: 30px;
-//         padding: 0 10px;
-//         background: #bbb;
-//         margin-right: 10px;
-//         color: #fff;
-//         cursor: pointer;
-//     }
-// }
-
 .mod_table {
-    background: #f8f8f8;
-    @include box($align: center);
-    @include border-half($type: all);
+    width: 100%;
     li {
-        width: 0;
-        -webkit-box-flex: 1;
-        text-align: center;
-        padding: 10px 0;
-        p {
-            @include border-half($type: right);
-            line-height: 25px;
-            &:nth-child(1){
-                color: #999;
-            }
-            &:nth-child(2) {
-                font-size: 16px;
+        font-size: 12px;
+        width: 50%;
+        display: inline-block;
+        @include box-sizing($type: border-box);
+        // @include border-half($type: all);
+        div {
+            padding: 10px;
+            background: #f8f8f8;
+            p {
+                line-height: 20px;
+                &:nth-child(1) {
+                    color: #aaa;
+                    font-size: 14px;
+                }
             }
         }
-        &:last-child {
-            p {
-                border: none;
-                -webkit-border-image: none;
-            }
+        &:nth-child(odd) {
+            padding-right: 5px;
+        }
+        &:nth-child(even) {
+            padding-left: 5px;
+        }
+        &:nth-child(1),
+        &:nth-child(2) {
+            margin-bottom: 10px;
         }
     }
 }
@@ -236,11 +274,6 @@ h4 {
     line-height: 40px;
 }
 
-.mod_blank {
-    background: #fff;
-    // padding: 10px;
-}
-
 // 筛选
 .mod_filter {
     display: block;
@@ -304,6 +337,51 @@ h4 {
         	    }
         	}
 		}
+    }
+}
+.mod_filter_base {
+    dd {
+        padding: 5px 0 5px 10px;
+        @include box($align: center);
+        @include border-half($type: bottom);
+        label {
+            display: block;
+            width: 80px;
+            line-height: 30px;
+        }
+        div {
+            width: 0;
+            -webkit-box-flex: 1;
+            ul {
+                @include box($align: center);
+                li {
+                    display: block;
+                    padding: 0 10px;
+                    line-height: 30px;
+                    margin-right: 10px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    margin-top: 2px;
+                    &.current {
+                        background: $green;
+                        color: #fff;
+                    }
+                }
+            }
+            &.t_date {
+                @include box($align: center);
+                input {
+                    width: 0;
+                    -webkit-box-flex: 1;
+                    display: block;
+                    -webkit-appearance: button;
+                    @include border-half($type: all);
+                    text-align: center;
+                    background: #f8f8f8;
+                }
+            }
+        }
     }
 }
 

@@ -111,6 +111,12 @@ Huijm
         controller: 'tLogin'
     })
 
+    .state('report.index', {
+        // cache: false,
+        url: '/index.htm',
+        templateUrl: 'code/tp/index.html',
+        controller: 'tIndex'
+    })
     // 基础数据-数据概况
     .state('report.base-data', {
         url: '/base/data.htm',

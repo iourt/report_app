@@ -11,6 +11,8 @@ angular.module('Huijm')
     $cacheFactory,
 
     $ionicLoading,
+    $ionicHistory,
+    $ionicViewSwitcher,
 
     cachePool
 ) {
@@ -265,6 +267,23 @@ angular.module('Huijm')
             });
 
             return sum;
+        },
+
+
+        /**
+         * 页面返回
+         */
+        toBack: function (step) {
+            var step = step || -1;
+            
+            $ionicViewSwitcher.nextDirection('back');
+            
+            if (!$ionicHistory.backView()) {
+                $state.go('forum.index');
+                return;
+            }
+
+            $ionicHistory.goBack(step);
         }
     };
 

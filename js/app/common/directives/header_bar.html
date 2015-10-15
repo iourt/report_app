@@ -1,22 +1,9 @@
-<header ngd-click="setHeader($event)" selector="li" class="mod_header">
-    <ul>
-        <li data-menu="base">
-            回家么
-        </li>
-    <!--     <li data-menu="action" ng-class="{current: HeaderTab=='action'}">
-            行为数据
-        </li> -->
-        <li data-menu="base" ng-class="{current: HeaderTab=='base'}">
-            基础数据
-        </li>
+<ion-header-bar class="mod_header" ng-class="{transparent:isTransparent}" ng-style="HeaderBg" align-title="center" no-tap-scroll="true">
+    <button page-back class="back_button"></button>
+    
+    <h1 class="title" ng-bind-html="Page.Title"></h1>
 
-        <!--    
-        <li data-id="3" ng-class="{current: MenuId == 3}">
-            产品
-        </li>
-        <li data-id="4" ng-class="{current: MenuId == 4}">
-            其他
-        </li>
-        -->
-    </ul>
-</header>
+    <div class="buttons buttons-right" ng-if="Page.RightText">
+        <button class="right_button" ng-click="Page.RightFun()">{{Page.RightText}}</button>
+    </div>
+</ion-header-bar>

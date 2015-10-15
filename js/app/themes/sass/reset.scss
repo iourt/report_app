@@ -1,4 +1,4 @@
-﻿* {
+﻿body,p,h1,h2,h3,h4,h5,div,span,input,button,section,ul,li,ol,dl,dt,dd {
     padding: 0;
     margin: 0;
 }
@@ -6,32 +6,14 @@ html {
     height: 100%;
 }
 body {
-    font-size: 12px;
-    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    // font-family: "Microsoft YaHei";
+    font-family:"Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
     color: #333;
     background: #f8f8f8;
-    // position: relative;
-    // height: 100%;
 }
 
 $left: 200px;
-
-body {
-    &.tbody,
-    &.tbodys {
-        .mod_wrapper {
-            padding-top: 65px;
-        }
-    }
-    &.tbody {
-        background: -webkit-linear-gradient(left, $green 0%, $green 60px, #eee 60px, #eee $left, #f8f8f8 $left, #f8f8f8 100% );
-        background: -webkit-linear-gradient(left, $green 0%, $green 60px, #eee 60px, #eee $left, #fff $left, #fff 100% );
-    }
-    &.tbodys {
-        background: -webkit-linear-gradient(left, $green 0%, $green 60px, #f8f8f8 60px, #f8f8f8 100% );
-        background: -webkit-linear-gradient(left, $green 0%, $green 60px, #fff 60px, #fff 100% );
-    }
-}
 
 i, em {
     font-style: normal;
@@ -58,4 +40,8 @@ input {
 }
 .mb20 {
     margin-bottom: 20px !important;
+}
+
+h1,h2,h3,h4,h5 {
+    font-size: 14px;
 }

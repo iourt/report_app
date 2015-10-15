@@ -4,6 +4,9 @@ Huijm
     $scope,
     $state,
     $rootScope,
+
+    $ionicViewSwitcher,
+    
     base64,
     widget
 ){
@@ -42,8 +45,9 @@ Huijm
                         UserName: $scope.tInput.UserName,
                         Auth: base64.encode($scope.tInput.UserName + ':' + $scope.tInput.Password)
                     });
-                                        
-                    $state.go('report.base-data');
+                    
+                    $ionicViewSwitcher.nextDirection('none');                 
+                    $state.go('report.index');
                 } else {
 					if (res.msg) {
 						widget.msgToast(res.msg);

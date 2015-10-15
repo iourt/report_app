@@ -12,6 +12,7 @@ Huijm
 
 
     $scope.Cate = {
+        'id': 1,
         'cate_1': '激活用户',
         'cate_2': '注册用户',
         'cate_3': '认证用户',
@@ -36,9 +37,7 @@ Huijm
     // 构造数据结构
     $scope.DataList = {
         Basic: [], // 基础数据
-        List: [], // 列表数据
-        X: [],
-        Y: []
+        List: [] // 列表数据
     };
 
     // $scope.Page.X = (angular.element(document.querySelector('body')).width()-80)+'px';
@@ -59,8 +58,6 @@ Huijm
             },
             success: function (res) {
                 $scope.DataList.Basic = [];
-                $scope.DataList.X = [];
-                $scope.DataList.Y = [];
                 $scope.DataList.List = res.data.list;
 
                 for(var i in res.data.overview) {
@@ -84,32 +81,17 @@ Huijm
                     $scope.a2 = widget.getSum(arr['cate_2']),
                     $scope.a3 = widget.getSum(arr['cate_3']),
                     $scope.a4 = widget.getSum(arr['cate_4']);
-                    
-                    $scope.DataList.X = arr['date'].reverse();
-                    $scope.DataList.Y = [
-                        {
-                            name: '激活用户',
-                            data: arr['cate_1'].reverse()
-                        },
-                        {
-                            name: '注册用户',
-                            data: arr['cate_2'].reverse()
-                        },
-                        {
-                            name: '认证用户',
-                            data: arr['cate_3'].reverse()
-                        },
-                        {
-                            name: '激活小区',
-                            data: arr['cate_4'].reverse()
-                        }
-                    ];
                 }
-
-                $scope.showChart();
             }
         });
     };
 
     $scope.getData();
+
+
+    $scope.changeData = function (e) {
+        var $that = angular.element(e.delegationTarget);
+
+        $scope.Cate.id = $that.attr('data-id');
+    };
 });
