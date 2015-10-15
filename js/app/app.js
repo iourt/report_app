@@ -111,44 +111,6 @@ Huijm
         controller: 'tLogin'
     })
 
-    // 概况数据
-    .state('report.index', {
-        // cache: false,
-        url: '/index.htm',
-        templateUrl: 'code/tp/index.html',
-        controller: 'tIndex'
-    })
-
-    // 统计数据
-    .state('report.count', {
-        // cache: false,
-        url: '/count.htm?time',
-        templateUrl: 'code/tp/count.html',
-        controller: 'tCount'
-    })
-
-    // 分布数据
-    .state('report.client', {
-        // cache: false,
-        url: '/client_{type}.htm?time',
-        templateUrl: 'code/tp/client.html',
-        controller: 'tClient'
-    })
-
-
-    // 模块分页
-    .state('report.list', {
-        url: '/list-{id}.htm?name',
-        templateUrl: 'code/tp/page_list.html',
-        controller: 'tPageList'
-    })
-    // 模块页面具体信息
-    .state('report.detail', {
-        url: '/detail-{mid}-{id}.htm',
-        templateUrl: 'code/tp/page_detail.html',
-        controller: 'tPageDetail'
-    })
-
     // 基础数据-数据概况
     .state('report.base-data', {
         url: '/base/data.htm',
@@ -160,25 +122,6 @@ Huijm
         url: '/base/user.htm',
         templateUrl: 'code/tp/base_user.html',
         controller: 'tBaseUser'
-    })
-    // 认证统计
-    .state('report.certificate', {
-        url: '/certificate.htm',
-        templateUrl: 'code/tp/certificate.html',
-        controller: 'tCertificate'
-    })
-
-    // 访问统计
-    .state('report.visit', {
-        url: '/visit.htm',
-        templateUrl: 'code/tp/visit.html',
-        controller: 'tVisit'
-    })
-    // 购买统计
-    .state('report.shopping', {
-        url: '/shopping.htm',
-        templateUrl: 'code/tp/shopping.html',
-        controller: 'tShopping'
     });
 
 
