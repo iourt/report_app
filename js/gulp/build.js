@@ -99,14 +99,6 @@ module.exports = function (gulp, $) {
         return gulp.src(codePath+'index.html')
             .pipe(
                 $.inject(
-                    gulp.src(codePath+'lib/**/*.js', {read: false}), { 
-                        relative: true, 
-                        name: 'injectlib' 
-                    }
-                )
-            )
-            .pipe(
-                $.inject(
                     gulp.src(codePath+'frame/**/*.js', {read: false}), { 
                         relative: true, 
                         name: 'injectframe' 
@@ -142,6 +134,8 @@ module.exports = function (gulp, $) {
     gulp.task('replacehtml', function() {
         var jsFiles = [
             'frame.js?v='+ version,
+            'cordova.js?v='+ version,
+            'cordova_plugins.js?v='+ version,
             'common.js?v='+ version,
             'index.js?v='+ version
         ];
@@ -159,8 +153,7 @@ module.exports = function (gulp, $) {
     gulp.task('templates', function() {
         return gulp.src([
                 codePath+'**/*.html',
-                '!'+codePath+'index.html',
-                '!'+codePath+'bower/**/*'
+                '!'+codePath+'index.html'
             ])
             .pipe($.ngHtml2js({
                 moduleName: "Huijm",
@@ -172,8 +165,7 @@ module.exports = function (gulp, $) {
     //--css 迁移
     gulp.task('movecss', function() {
         return gulp.src([
-                codePath+'**/*.css',
-                '!'+codePath+'bower/**/*'
+                codePath+'**/*.css'
             ])
             .pipe($.minifyCss())
             .pipe(gulp.dest(buildFolder));
@@ -191,8 +183,7 @@ module.exports = function (gulp, $) {
     gulp.task('moveimages', function() {
         return gulp.src([
                 codePath+'**/*.jpg',
-                codePath+'**/*.png',
-                '!'+codePath+'bower/**/*'
+                codePath+'**/*.png'
             ])
             .pipe(gulp.dest(buildFolder));
     });
@@ -201,14 +192,8 @@ module.exports = function (gulp, $) {
     gulp.task('minjs', function() {
         //--框架JS压缩合并
         var framejs = [
-                codePath+'lib/md5.js',
-                codePath+'lib/jquery-1.8.3.min.js',
-                codePath+'lib/highcharts.js',
-
-                codePath+'bower/angular/angular.js',
-                codePath+'bower/angular-touch/angular-touch.js',
-                codePath+'bower/angular-route/angular-route.js',
-                codePath+'bower/angular-ui-router/release/angular-ui-router.js'
+                codePath+'lib/angular.js',
+                codePath+'frame/**/*.js'
             ];
 
         gulp.src(framejs)
@@ -238,7 +223,7 @@ module.exports = function (gulp, $) {
                 '!'+codePath+'app.js',
                 '!'+codePath+'lib/**/*.js',
                 '!'+codePath+'common/**/*.js',
-                '!'+codePath+'bower/**/*'
+                '!'+codePath+'frame/**/*'
             ])
             .pipe($.concat('index.js'))
             .pipe($.ngAnnotate())
