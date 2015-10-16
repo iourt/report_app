@@ -72,6 +72,23 @@ angular.module('Huijm', [
             $rootScope.appVersion = version;
         });
     });
+
+
+    // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    //     if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
+    //         event.preventDefault();
+    //         $ionicViewSwitcher.nextDirection('none');
+    //         $state.go('report.login');
+    //         return;
+    //     } else {
+    //         if (toState.name == 'report.login') {
+    //             $ionicViewSwitcher.nextDirection('none');
+    //             $state.go('report.index', {}, {
+    //                 reload: true
+    //             });
+    //         }
+    //     }
+    // });
 })
 .config( function ($stateProvider, $urlRouterProvider) {
 
@@ -113,6 +130,6 @@ angular.module('Huijm', [
 
 
     // $urlRouterProvider.when('', '/index.htm');
-    $urlRouterProvider.otherwise('/mg/index.htm');
+    $urlRouterProvider.otherwise('/mg/login.htm');
 
 });

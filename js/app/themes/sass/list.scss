@@ -99,6 +99,7 @@
             display: table-cell;
             line-height: 30px;
             padding: 5px 10px;
+            white-space: nowrap;
             @include border-half($type: bottom);
         }
     }
