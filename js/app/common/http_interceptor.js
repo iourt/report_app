@@ -10,8 +10,7 @@
  *
  */
 
-// angular.module('Huijm')
-Huijm
+angular.module('Huijm')
 .config(function ($provide, $httpProvider, $compileProvider) {
 
     $httpProvider.defaults.headers.put['Content-Type'] = 'application/x-www-form-urlencoded';

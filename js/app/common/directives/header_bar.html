@@ -1,9 +1,5 @@
-<ion-header-bar class="mod_header" ng-class="{transparent:isTransparent}" ng-style="HeaderBg" align-title="center" no-tap-scroll="true">
+<ion-header-bar class="mod_header" align-title="center" no-tap-scroll="true">
     <button page-back class="back_button"></button>
     
     <h1 class="title" ng-bind-html="Page.Title"></h1>
-
-    <div class="buttons buttons-right" ng-if="Page.RightText">
-        <button class="right_button" ng-click="Page.RightFun()">{{Page.RightText}}</button>
-    </div>
 </ion-header-bar>

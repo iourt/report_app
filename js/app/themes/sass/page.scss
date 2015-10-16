@@ -24,8 +24,16 @@
     }
 }
 
+.mod_bg {
+    background-image: url(images/bg11.jpg);
+    background-repeat: no-repeat;
+    background-position: right 0;
+    // background-position: 0 0;
+    background-size: auto 100%;
+}
+
 .mod_index {
-    padding: 0 5px;
+    padding: 5px;
     @include box();
     li {
         width: 0;
@@ -34,15 +42,34 @@
         display: block;
         text-align: center;
         margin: 0 5px;
-        background: #eee;
-        padding: 10px;
+        // background: #eee;
+        padding: 40px 10px;
         line-height: 30px;
-        @include icon($elem: before, $display: block, $size: 30px);
+        color: #fff;
+
+        background: rgba(255, 255, 255, 0.1);
+        -webkit-backdrop-filter: blur(3px);
+
+        @include border-half($type: all, $color: white);
+        @include bottom-shadow();
+        @include icon($elem: before, $display: block, $color: #fff, $size: 60px, $mb: 10px);
         &.icon_base_data:before {
             content: "\f471";
         }
         &.icon_base_user:before {
             content: "\f3b1";
+        }
+        &.icon_01:before {
+            content: "\f493";
+        }
+        &.icon_02:before {
+            content: "\f483";
+        }
+        &.icon_03:before {
+            content: "\f453";
+        }
+        &.icon_06:before {
+            content: "\f119";
         }
     }
 }
@@ -307,7 +334,7 @@ h4 {
                     $type: "\f404",
                     $elem: after,
                     $color: #fff,
-                    $marginleft: 5px
+                    $ml: 5px
                 );
             }
         }

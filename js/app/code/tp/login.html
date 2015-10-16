@@ -1,15 +1,15 @@
-
-
-<!-- <input type="file" ng-model="Deploy.currentImage" accept="image/*" app-filereader /> -->
-
-<ul class="mod_login">
-    <li>
-        <label>用户名：</label>
-        <input ng-model="tInput.UserName" type="text" placeholder="输入用户名" />
-    </li>
-    <li>
-        <label>密码：</label>
-        <input ng-model="tInput.Password" type="password" placeholder="输入用户密码" />
-    </li>
-    <li ng-click="toLogin()">登录</li>
-</ul>
+<ion-view class="mod_bg">
+    <ion-content overflow-scroll="true" class="mod_wrapper mb20">
+        <ul class="mod_login">
+            <li>
+                <label>用户名：</label>
+                <input ng-model="tInput.UserName" type="text" placeholder="输入用户名" />
+            </li>
+            <li>
+                <label>密码：</label>
+                <input ng-model="tInput.Password" type="password" placeholder="输入用户密码" />
+            </li>
+            <li ng-click="toLogin()">登录</li>
+        </ul>
+    </ion-content>
+</ion-view>

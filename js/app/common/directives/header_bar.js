@@ -1,4 +1,5 @@
-Huijm
+angular.module('Huijm')
+
 .directive('headerBar', function (
     $state,
     $rootScope,

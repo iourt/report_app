@@ -100,7 +100,7 @@ angular.module('Huijm')
             //})
 
             $scope.$watch('Filter.Client', function () {
-                callback();
+                // callback();
             });
         }
     };

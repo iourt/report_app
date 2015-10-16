@@ -21,8 +21,9 @@
 
     $float: null,
 
-    $marginright: null,
-    $marginleft: null
+    $mr: null,
+    $ml: null,
+    $mb: null
 ) {
     &:#{$elem} {
         @include font-icon();
@@ -79,12 +80,16 @@
             float: $float;
         }
 
-        @if $marginleft != null {
-            margin-left: $marginleft;
+        @if $ml != null {
+            margin-left: $ml;
         }
 
-        @if $marginright != null {
-            margin-right: $marginright;
+        @if $mr != null {
+            margin-right: $mr;
+        }
+
+        @if $mb != null {
+            margin-bottom: $mb
         }
     }
 }

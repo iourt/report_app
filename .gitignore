@@ -4,4 +4,9 @@ Thumbs.db
 
 
 /js/node_modules/
+/js/.tmp/
+/js/build/
+/.folder
+
+/client/
 

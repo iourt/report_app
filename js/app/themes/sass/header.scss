@@ -1,5 +1,6 @@
 ﻿.mod_header {
-    background: $green;
+    background: $blue;
+    // background: #fff;
     @include bottom-shadow();
     // @include border-half($type: bottom);
     .back_button {

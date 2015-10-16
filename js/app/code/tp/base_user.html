@@ -1,25 +1,27 @@
-<h2>筛选条件</h2>
-<!-- 时间切换 -->
-<tab-time mid="show" right="show" hide="1" callback="getData"></tab-time>
-<filter-bar type="data" class="mb10" callback="getData"></filter-bar>
+<header-bar title="活跃用户"></header-bar>
 
-<div id="chart" class="mb10" style="width:{{Page.X}}"></div>
-<!-- <view-charts></view-charts> -->
+<ion-view>
+    <ion-content overflow-scroll="true" class="mod_wrapper mb20">
+        <div class="mod_blank mb10">
+            <h2>筛选条件</h2>
+            <filter-bar type="data" class="mb10" callback="getData"></filter-bar>
+        </div>
 
-<h2>数据明细</h2>
-<section class="mod_blank">
-    <dl class="list_table">
-        <dt>
-            <p>时间</p>
-            <p>活跃用户(人数)</p>
-            <p>活跃度(百分比)</p>
-        </dt>
-        <dd ng-repeat="(k, v) in DataList.List track by $index">
-            <p>{{v.date}}</p>
-            <p>{{v.activeUser}}</p>
-            <p>{{v.activePer}}%</p>
-        </dd>
-    </dl>
-</section>
-
+        <div class="mod_blank mb10">
+            <h2>数据明细</h2>
+            <dl class="list_table">
+                <dt>
+                    <p>时间</p>
+                    <p>活跃用户(人数)</p>
+                    <p>活跃度(百分比)</p>
+                </dt>
+                <dd ng-repeat="(k, v) in DataList.List track by $index">
+                    <p>{{v.date}}</p>
+                    <p>{{v.activeUser}}</p>
+                    <p>{{v.activePer}}%</p>
+                </dd>
+            </dl>
+        </div>
+    </ion-content>
+</ion-view>
 

@@ -1,14 +1,12 @@
-Huijm
+angular.module('Huijm')
 .controller('tBaseUser', function (
     $scope,
     $rootScope,
     $stateParams,
+    
     ShowTime,
     widget
 ){
-    $rootScope.HeaderTab = 'base';
-    $rootScope.MenuId    = 'base_user';
-    $rootScope.HideSub   = true;
 
     $scope.Cate = {
         'activeUser': '活跃用户(人数)',

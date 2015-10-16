@@ -1,4 +1,4 @@
-Huijm
+angular.module('Huijm')
 .controller('tLogin', function (
     $http,
     $scope,
@@ -7,18 +7,18 @@ Huijm
 
     $ionicViewSwitcher,
     
+    toJump,
     base64,
     widget
 ){
-    $rootScope.showHeader = false;
-    $rootScope.HideSub    = false;
-    $rootScope.HeaderTab  = '';
-    $rootScope.MenuId     = '';
-
     $scope.tInput = {};
 
     if ($rootScope.UserInfo && $rootScope.UserInfo.Auth) {
-        $state.go('report.base-data');
+        // $ionicViewSwitcher.nextDirection('none');
+        // $state.go('report.index');
+        toJump({
+            router: 'report.index'
+        });
     }
 
     $scope.toLogin = function () {
@@ -46,8 +46,11 @@ Huijm
                         Auth: base64.encode($scope.tInput.UserName + ':' + $scope.tInput.Password)
                     });
                     
-                    $ionicViewSwitcher.nextDirection('none');                 
-                    $state.go('report.index');
+                    // $ionicViewSwitcher.nextDirection('none');                 
+                    // $state.go('report.index');
+                    toJump({
+                        router: 'report.index'
+                    });
                 } else {
 					if (res.msg) {
 						widget.msgToast(res.msg);

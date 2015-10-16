@@ -1,16 +1,12 @@
-Huijm
+angular.module('Huijm')
 .controller('tBaseData', function (
     $scope,
     $rootScope,
     $stateParams,
+    
     ShowTime,
     widget
 ){
-    $rootScope.HeaderTab = 'base';
-    $rootScope.MenuId    = 'base_data';
-    $rootScope.HideSub   = true;
-
-
     $scope.Cate = {
         'id': 1,
         'cate_1': '激活用户',

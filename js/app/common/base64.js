@@ -1,4 +1,4 @@
-Huijm
+angular.module('Huijm')
 .service('base64', function () {
   var B64 = {
         alphabet: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',

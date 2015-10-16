@@ -63,4 +63,21 @@ angular.module('Huijm')
             });
         }
     };
+})
+
+.service('toJump', function (
+    $state,
+
+    $ionicViewSwitcher
+) {
+    var toJump = function (params) {
+        var direction = params.direction || 'none',
+            router = params.router,
+            options = params.options || {};
+
+        $ionicViewSwitcher.nextDirection(direction);
+        $state.go(router, options, { inherit: false });
+    };
+
+    return toJump;
 });

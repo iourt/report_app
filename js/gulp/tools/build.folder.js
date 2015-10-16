@@ -1,7 +1,7 @@
 var fs = require('fs');
 
 module.exports = function() {
-    var file = './.folder',
+    var file = '../.folder',
         dir = './build/',
         exists = fs.existsSync(file);
 

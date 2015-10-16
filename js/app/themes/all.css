@@ -9282,9 +9282,6 @@ body, p, h1, h2, h3, h4, h5, div, span, input, button, section, ul, li, ol, dl, 
   padding: 0;
   margin: 0; }
 
-html {
-  height: 100%; }
-
 body {
   font-size: 14px;
   font-family: "Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
@@ -9316,7 +9313,7 @@ h1, h2, h3, h4, h5 {
   font-size: 14px; }
 
 .mod_header {
-  background: #3cc482;
+  background: #229ffc;
   -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05); }
   .mod_header .back_button {
@@ -9411,14 +9408,14 @@ h1, h2, h3, h4, h5 {
     display: block;
     border-width: 1;
     border: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
   .mod_client .mod_client_list {
     margin-left: 10px;
     width: 0;
     -webkit-box-flex: 1;
     border-width: 1;
     border: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
     .mod_client .mod_client_list dt,
     .mod_client .mod_client_list dd {
       padding: 0 10px;
@@ -9426,14 +9423,14 @@ h1, h2, h3, h4, h5 {
       display: -webkit-box;
       border-width: 0;
       border-bottom: 1px solid #dedede;
-      -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+      -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
       .mod_client .mod_client_list dt label,
       .mod_client .mod_client_list dd label {
         display: block;
         width: 80px;
         border-width: 0;
         border-right: 1px solid #dedede;
-        -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+        -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
       .mod_client .mod_client_list dt:last-child,
       .mod_client .mod_client_list dd:last-child {
         border: 0;
@@ -9450,7 +9447,7 @@ h1, h2, h3, h4, h5 {
         display: -webkit-box;
         border-width: 0;
         border-bottom: 1px solid #dedede;
-        -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+        -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
         .mod_client .mod_client_list dd ul li p:nth-child(1) {
           width: 100px;
           padding-left: 10px; }
@@ -9472,7 +9469,7 @@ h1, h2, h3, h4, h5 {
       padding: 5px 10px;
       border-width: 0;
       border-bottom: 1px solid #dedede;
-      -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+      -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
   .list_table dt {
     background: #eee;
     font-weight: bold; }
@@ -9508,8 +9505,14 @@ h1, h2, h3, h4, h5 {
         background: #3cc482;
         color: #fff; }
 
+.mod_bg {
+  background-image: url(images/bg11.jpg);
+  background-repeat: no-repeat;
+  background-position: right 0;
+  background-size: auto 100%; }
+
 .mod_index {
-  padding: 0 5px;
+  padding: 5px;
   display: -webkit-box; }
   .mod_index li {
     width: 0;
@@ -9518,21 +9521,37 @@ h1, h2, h3, h4, h5 {
     display: block;
     text-align: center;
     margin: 0 5px;
-    background: #eee;
-    padding: 10px;
-    line-height: 30px; }
+    padding: 40px 10px;
+    line-height: 30px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(3px);
+    border-width: 1;
+    border: 1px solid #dedede;
+    -webkit-border-image: url(images/icon_border_half_white.png) 2 stretch;
+    -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05); }
     .mod_index li:before {
       font-family: "Ionicons";
       font-weight: normal;
       display: block;
       vertical-align: middle;
       content: "";
-      font-size: 30px;
-      color: #000; }
+      font-size: 60px;
+      color: #fff;
+      margin-bottom: 10px; }
     .mod_index li.icon_base_data:before {
       content: "\f471"; }
     .mod_index li.icon_base_user:before {
       content: "\f3b1"; }
+    .mod_index li.icon_01:before {
+      content: "\f493"; }
+    .mod_index li.icon_02:before {
+      content: "\f483"; }
+    .mod_index li.icon_03:before {
+      content: "\f453"; }
+    .mod_index li.icon_06:before {
+      content: "\f119"; }
 
 h2 {
   line-height: 30px;
@@ -9603,7 +9622,7 @@ h2 {
   .mod_login li {
     border-width: 0;
     border-bottom: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch;
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch;
     display: -webkit-box;
     -webkit-box-align: center; }
     .mod_login li label,
@@ -9739,7 +9758,7 @@ h4 {
         line-height: 20px;
         border-width: 1;
         border: 1px solid #dedede;
-        -webkit-border-image: url(images/icon_border_half.png) 2 stretch;
+        -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch;
         text-align: center;
         padding: 0 10px;
         background: #3cc482;
@@ -9762,7 +9781,7 @@ h4 {
       display: -webkit-box;
       border-width: 0;
       border-bottom: 1px solid #dedede;
-      -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+      -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
       .mod_filter dd div ul {
         width: 0;
         -webkit-box-flex: 1;
@@ -9784,7 +9803,7 @@ h4 {
   -webkit-box-align: center;
   border-width: 0;
   border-bottom: 1px solid #dedede;
-  -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+  -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
   .mod_filter_base dd label {
     display: block;
     width: 80px;
@@ -9817,7 +9836,7 @@ h4 {
         -webkit-appearance: button;
         border-width: 1;
         border: 1px solid #dedede;
-        -webkit-border-image: url(images/icon_border_half.png) 2 stretch;
+        -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch;
         text-align: center;
         background: #f8f8f8; }
 
@@ -9895,7 +9914,7 @@ h4 {
           -webkit-box-flex: 1;
           border-width: 0;
           border-right: 1px solid #dedede;
-          -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+          -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
           .mod_table_02 dd div:nth-child(2) p:last-child {
             border: 0;
             -webkit-border-image: none; }
@@ -9962,7 +9981,7 @@ h4 {
       cursor: pointer;
       border-width: 1;
       border: 1px solid #dedede;
-      -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+      -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
       .mod_tab_01 div.t_btn p:last-child {
         margin-right: 5px; }
       .mod_tab_01 div.t_btn p.current {
@@ -10007,7 +10026,7 @@ h4 {
     background: #fff;
     border-width: 1;
     border: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
     .mod_calendar .calendar_input:after {
       font-family: "Ionicons";
       font-weight: normal;
@@ -10028,7 +10047,7 @@ h4 {
     background: #eee;
     border-width: 1;
     border: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch;
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch;
     -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05); }
     .mod_calendar .calendar dl dt,
@@ -10079,7 +10098,7 @@ h4 {
             -webkit-box-flex: 1;
             border-width: 1;
             border: 1px solid #dedede;
-            -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+            -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
             .mod_calendar .calendar dl dd section ul li p.today {
               background: #eee; }
             .mod_calendar .calendar dl dd section ul li p.disable {
@@ -10119,7 +10138,7 @@ h4 {
         background: #3cc482;
         border-width: 1;
         border: 1px solid #dedede;
-        -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+        -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
         .mod_calendar .calendar .calendar_btn p:last-child {
           background: #ccc; }
 
@@ -10135,7 +10154,7 @@ h4 {
     cursor: pointer;
     border-width: 1;
     border: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
     .mod_calendar_group .calendar_input:after {
       font-family: "Ionicons";
       font-weight: normal;
@@ -10155,7 +10174,7 @@ h4 {
     background: #f8f8f8;
     border-width: 1;
     border: 1px solid #dedede;
-    -webkit-border-image: url(images/icon_border_half.png) 2 stretch;
+    -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch;
     -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05); }
     .mod_calendar_group .calendar dl dt,
@@ -10224,7 +10243,7 @@ h4 {
             -webkit-box-flex: 1;
             border-width: 1;
             border: 1px solid #dedede;
-            -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+            -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
             .mod_calendar_group .calendar dl dd section ul li p.disable, .mod_calendar_group .calendar dl dd section ul li i.disable {
               color: #ccc;
               cursor: default; }
@@ -10268,6 +10287,6 @@ h4 {
         background: #3cc482;
         border-width: 1;
         border: 1px solid #dedede;
-        -webkit-border-image: url(images/icon_border_half.png) 2 stretch; }
+        -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
         .mod_calendar_group .calendar .calendar_btn p:last-child {
           background: #ccc; }

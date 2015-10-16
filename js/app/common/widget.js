@@ -279,7 +279,7 @@ angular.module('Huijm')
             $ionicViewSwitcher.nextDirection('back');
             
             if (!$ionicHistory.backView()) {
-                $state.go('forum.index');
+                $state.go('report.index');
                 return;
             }
 

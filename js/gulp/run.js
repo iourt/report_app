@@ -9,7 +9,7 @@ var runType = argv.run || '', // dev、build
 module.exports = function (gulp, $) {
 
     gulp.task('tmpl', ['minjs'], function() {
-        gulp.start('connect');
+        // gulp.start('connect');
     });
 
     gulp.task('dev', ['sass', 'connect', 'watch']);

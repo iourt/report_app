@@ -9,14 +9,15 @@
         <link rel="stylesheet" href="themes/all.css">
         <!-- endbuild -->
     </head>
-    <body ng-class="{tbody: showHeader, tbodys: HideSub}">
+    <body>
 
-        <div ui-view><ion-nav-view></ion-nav-view></div>
-
-        <div ng-if="isLoading" class="loading"></div>
+        <div ui-view>
+            <ion-nav-view></ion-nav-view>
+        </div>
 
         <!-- build:js -->
         <script src="lib/angular.js"></script>
+        <script src="lib/ionic.js"></script>
 
         <!-- injectframe:js -->
         <script src="frame/angular-animate.js"></script>
@@ -25,7 +26,7 @@
         <script src="frame/angular-touch.js"></script>
         <script src="frame/angular-ui-router.js"></script>
         <script src="frame/bindonce.js"></script>
-        <script src="frame/ionic.js"></script>
+        <script src="frame/ionic-angular.js"></script>
         <script src="frame/ng-cordova.js"></script>
         <!-- endinject -->
 
@@ -38,8 +39,6 @@
         <script src="common/http_interceptor.js"></script>
         <script src="common/showtime.js"></script>
         <script src="common/widget.js"></script>
-        <script src="common/directives/calendar.js"></script>
-        <script src="common/directives/calendar_group.js"></script>
         <script src="common/directives/delegate_event.js"></script>
         <script src="common/directives/filter_bar.js"></script>
         <script src="common/directives/header_bar.js"></script>
@@ -56,5 +55,20 @@
         <script src="code/js/login.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
+<!--
+        <script>
+            function bootstrapAngular() {
+                // var domElement = document.querySelector('body');
+                angular.bootstrap(document, ['Huijm']);
+            }
+
+            // This method of user agent detection also works, though it means you might have to maintain this UA list
+            if (navigator.userAgent.match(/(iOS|iPhone|iPod|iPad|Android|BlackBerry)/)) {
+                document.addEventListener("deviceready", bootstrapAngular, false);
+            } else {
+                bootstrapAngular();
+            }
+        </script>
+    -->
     </body>
 </html>

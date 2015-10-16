@@ -1,35 +1,35 @@
-var Huijm = angular.module('Huijm', [
+angular.module('Huijm', [
     // 'ui.router',
     // 'ui.router.router',
     'ngCordova',
     'ionic',
     'DelegateEvents'
-]);
-
-Huijm
+])
 .run( function (
     $rootScope,
     $location,
     $state,
 
-    $cordovaDevice,
+    // $ionicViewSwitcher,
+    $ionicPlatform,
+
     $cordovaNetwork,
     $cordovaKeyboard,
     $cordovaStatusbar,
     $cordovaAppVersion,
-    $cordovaSplashscreen,
+    // $cordovaSplashscreen,
 
     cachePool
 ) {
+
+    // alert(JSON.stringify($ionicPlatform));
     // console.log($location.$$host);
-    var host = $location.$$host;
-    $rootScope.apiSocket = 'http://api.huijiame.com/manage/';
+    // var host = $location.$$host;
+    // $rootScope.apiSocket = 'http://api.huijiame.com/manage/';
 
-    if (host !== 'report.huijiame.com') {
+    // if (host !== 'report.huijiame.com') {
         $rootScope.apiSocket = 'http://testapi.huijiame.com/manage/';
-    }
-
-    $rootScope.showHeader = false;
+    // }
 
     // 获取本地用户信息
     $rootScope.UserInfo = (function () {
@@ -42,37 +42,18 @@ Huijm
         return UserInfo;
     })();
 
-
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        if (toState.name == 'report.login') {
-            $rootScope.showHeader = false;
-            return;
-        }
-
-        if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
-            $rootScope.showHeader = false;
-            event.preventDefault();
-            $state.go('report.login', {from: fromState.name});
-            return;
-        } else {
-            $rootScope.showHeader = true;
-            if (toState.name == 'report.login') {
-                $state.go('report.index', {}, {
-                    reload: true
-                });
-                $location.url('mg/base/data.htm');
-            }
-        }
-    });
-
-    document.addEventListener("deviceready", function () {
+    $ionicPlatform.ready(function() {
+        // $cordovaStatusbar.overlaysWebView(true);
+        $cordovaStatusbar.style(1);
+        // $cordovaStatusbar.styleColor('black');
+        // $cordovaStatusbar.styleHex('#000');
         $cordovaStatusbar.show();
 
         $cordovaKeyboard.hideAccessoryBar(true);
         $cordovaKeyboard.disableScroll(true);
 
         var isOnline = $cordovaNetwork.isOnline();
-        $rootScope.$on('$cordovaNetwork:offline', function () {
+        $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
             widget.msgToast("亲!世界上最遥远的距离就是木有网~");
         });
 
@@ -84,14 +65,13 @@ Huijm
         //         $cordovaSplashscreen.hide();
         //     }, 1000);
         // } else {
-            $cordovaSplashscreen.hide();
+            // $cordovaSplashscreen.hide();
         // }
 
         $cordovaAppVersion.getVersionNumber().then(function (version) {
             $rootScope.appVersion = version;
         });
-
-    }, false);
+    });
 })
 .config( function ($stateProvider, $urlRouterProvider) {
 
@@ -133,6 +113,6 @@ Huijm
 
 
     // $urlRouterProvider.when('', '/index.htm');
-    $urlRouterProvider.otherwise('/mg/login.htm');
+    $urlRouterProvider.otherwise('/mg/index.htm');
 
 });

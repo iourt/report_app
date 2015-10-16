@@ -193,6 +193,7 @@ module.exports = function (gulp, $) {
         //--框架JS压缩合并
         var framejs = [
                 codePath+'lib/angular.js',
+                codePath+'lib/ionic.js',
                 codePath+'frame/**/*.js'
             ];
 
