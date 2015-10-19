@@ -32,9 +32,36 @@
 
                 <div class="mod_blank">
                     <h2>数据明细</h2>
-                    <ion-scroll direction="x" zooming="false" scrollbar-x="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll">
+
+                    <div class="list_data">
+                        <dl ng-repeat="(k, v) in DataList.List track by $index">
+                            <dt>{{v.date}}</dt>
+                            <dd>
+                                <div>
+                                    <p>激活用户</p>
+                                    <p>{{v.cate_1}}</p>
+                                </div>
+                                <div>
+                                    <p>激活用户</p>
+                                    <p>{{v.cate_2}}</p>
+                                </div>
+                            </dd>
+                            <dd>
+                                <div>
+                                    <p>认证用户</p>
+                                    <p>{{v.cate_3}}</p>
+                                </div>
+                                <div>
+                                    <p>开通小区</p>
+                                    <p>{{v.cate_4}}</p>
+                                </div>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <!-- <ion-scroll direction="x" zooming="false" scrollbar-x="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll"> -->
                     <!-- <ion-scroll direction="x" scrollbar-x="false" locking="false"> -->
-                    <dl class="list_table">
+                    <!-- <dl class="list_table">
                         <dt>
                             <p style="width:90px;">日期</p>
                             <p>激活用户（{{a1}}）</p>
@@ -50,7 +77,7 @@
                             <p>{{v.cate_4}}</p>
                         </dd>
                     </dl>
-                    </ion-scroll>
+                    </ion-scroll> -->
                 </div>
 
                 <div class="h20"></div>

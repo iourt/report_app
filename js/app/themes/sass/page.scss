@@ -56,13 +56,14 @@
         @include border-half($type: all, $color: white);
         @include bottom-shadow();
         @include icon($elem: before, $display: block, $color: #fff, $size: 60px, $mb: 10px, $line: 30px);
-        &.icon_base_data {
-            &:before {
-                content: "\f471";
-            }
+        &.icon_base_data:before {
+            content: "\f471";
         }
         &.icon_base_user:before {
             content: "\f3b1";
+        }
+        &.icon_base_activity:before {
+            content: "\f313";
         }
         &.icon_01:before {
             content: "\f493";

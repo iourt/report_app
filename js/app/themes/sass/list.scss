@@ -123,3 +123,65 @@
     }
 }
 
+
+
+.list_data {
+    dl {
+        @include border-half($type: all);
+        margin-bottom: 10px;
+        dt {
+            background: #f8f8f8;
+            line-height: 30px;
+            text-indent: 10px;
+            font-weight: normal;
+        }
+        dd {
+            @include border-half($type: bottom);
+            @include box();
+            div {
+                width: 0;
+                -webkit-box-flex: 1;
+                padding: 5px 10px;
+                p {
+                    line-height: 20px;
+                    &:nth-child(1) {
+                        color: #aaa;
+                    }
+                }
+            }
+            @include last-no();
+
+            &:nth-child(2) {
+                div {
+                    &:nth-child(1) {
+                        p:nth-child(2) {
+                            color: #f60;
+                        }
+                    }
+                    &:nth-child(2) {
+                        p:nth-child(2) {
+                            color: $blue;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                div {
+                    &:nth-child(1) {
+                        p:nth-child(2) {
+                            color: #79e900;
+                        }
+                    }
+                    &:nth-child(2) {
+                        p:nth-child(2) {
+                            color: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
