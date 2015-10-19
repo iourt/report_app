@@ -5,10 +5,17 @@ angular.module('Huijm')
     $rootScope,
     $stateParams,
     $ionicScrollDelegate,
+    $ionicSideMenuDelegate,
     
     ShowTime,
     widget
 ){
+
+    $scope.toggleRightSideMenu = function() {
+        $ionicSideMenuDelegate.toggleRight();
+    };
+
+
     $scope.Cate = {
         'id': 1,
         'cate_1': '激活用户',
@@ -35,9 +42,7 @@ angular.module('Huijm')
     // 构造数据结构
     $scope.DataList = {
         Basic: [], // 基础数据
-        List: [], // 列表数据
-        X: [],
-        Y: []
+        List: [] // 列表数据
     };
 
     // $scope.Page.X = (angular.element(document.querySelector('body')).width()-80)+'px';
@@ -58,8 +63,6 @@ angular.module('Huijm')
             },
             success: function (res) {
                 $scope.DataList.Basic = [];
-                $scope.DataList.X = [];
-                $scope.DataList.Y = [];
                 $scope.DataList.List = res.data.list;
 
                 for(var i in res.data.overview) {
@@ -83,108 +86,53 @@ angular.module('Huijm')
                     $scope.a2 = widget.getSum(arr['cate_2']),
                     $scope.a3 = widget.getSum(arr['cate_3']),
                     $scope.a4 = widget.getSum(arr['cate_4']);
-                    
-                    $scope.DataList.X = arr['date'].reverse();
-                    $scope.DataList.Y = [
-                        {
-                            name: '激活用户',
-                            data: arr['cate_1'].reverse()
-                        },
-                        {
-                            name: '注册用户',
-                            data: arr['cate_2'].reverse()
-                        },
-                        {
-                            name: '认证用户',
-                            data: arr['cate_3'].reverse()
-                        },
-                        {
-                            name: '激活小区',
-                            data: arr['cate_4'].reverse()
-                        }
-                    ];
                 }
-
-                // $scope.showChart();
             }
         });
     };
 
     $scope.getData();
 
+    // $timeout(function(){
+    //     //return false; // <--- comment this to "fix" the problem
+    //     var sv = $ionicScrollDelegate.$getByHandle('horizontal').getScrollView();
 
-    $scope.showChart = function () {
-        $('#chart').highcharts({
-            chart: {
-                // zoomType: 'xy',
-                type: 'spline'
-            },
-            title: {
-                text: $scope.Page.TimeText,
-                align: 'right',
-                margin: 20,
-                style: {
-                    fontSize: '12px',
-                    color: '#999'
-                }
-            },
-            xAxis: {
-                categories: $scope.DataList.X
-            },
+    //     var container = sv.__container;
 
-            yAxis: {
-                title: {
-                    text: '基础数据统计分析'
-                }
-            },
-            credits:{
-                 enabled: false
-            },
+    //     var originaltouchStart = sv.touchStart;
+    //     var originalmouseDown = sv.mouseDown;
+    //     var originaltouchMove = sv.touchMove;
+    //     var originalmouseMove = sv.mouseMove;
 
-            series: $scope.DataList.Y
-        });
-    };
-
-    $timeout(function(){
-        //return false; // <--- comment this to "fix" the problem
-        var sv = $ionicScrollDelegate.$getByHandle('horizontal').getScrollView();
-
-        var container = sv.__container;
-
-        var originaltouchStart = sv.touchStart;
-        var originalmouseDown = sv.mouseDown;
-        var originaltouchMove = sv.touchMove;
-        var originalmouseMove = sv.mouseMove;
-
-        container.removeEventListener('touchstart', sv.touchStart);
-        container.removeEventListener('mousedown', sv.mouseDown);
-        document.removeEventListener('touchmove', sv.touchMove);
-        document.removeEventListener('mousemove', sv.mousemove);
+    //     container.removeEventListener('touchstart', sv.touchStart);
+    //     container.removeEventListener('mousedown', sv.mouseDown);
+    //     document.removeEventListener('touchmove', sv.touchMove);
+    //     document.removeEventListener('mousemove', sv.mousemove);
 
 
-        sv.touchStart = function(e) {
-          e.preventDefault = function(){}
-          originaltouchStart.apply(sv, [e]);
-        }
+    //     sv.touchStart = function(e) {
+    //       e.preventDefault = function(){}
+    //       originaltouchStart.apply(sv, [e]);
+    //     }
 
-        sv.touchMove = function(e) {
-          e.preventDefault = function(){}
-          originaltouchMove.apply(sv, [e]);
-        }
+    //     sv.touchMove = function(e) {
+    //       e.preventDefault = function(){}
+    //       originaltouchMove.apply(sv, [e]);
+    //     }
 
-        sv.mouseDown = function(e) {
-          e.preventDefault = function(){}
-          originalmouseDown.apply(sv, [e]);
-        }
+    //     sv.mouseDown = function(e) {
+    //       e.preventDefault = function(){}
+    //       originalmouseDown.apply(sv, [e]);
+    //     }
 
-        sv.mouseMove = function(e) {
-          e.preventDefault = function(){}
-          originalmouseMove.apply(sv, [e]);
-        }
+    //     sv.mouseMove = function(e) {
+    //       e.preventDefault = function(){}
+    //       originalmouseMove.apply(sv, [e]);
+    //     }
 
-        container.addEventListener("touchstart", sv.touchStart, false);
-        container.addEventListener("mousedown", sv.mouseDown, false);
-        document.addEventListener("touchmove", sv.touchMove, false);
-        document.addEventListener("mousemove", sv.mouseMove, false);
-    });
+    //     container.addEventListener("touchstart", sv.touchStart, false);
+    //     container.addEventListener("mousedown", sv.mouseDown, false);
+    //     document.addEventListener("touchmove", sv.touchMove, false);
+    //     document.addEventListener("mousemove", sv.mouseMove, false);
+    // });
 });

@@ -19,6 +19,8 @@ angular.module('Huijm')
             // }
             if (!$scope.Filter) $scope.Filter = {};
 
+            console.log($scope.$parent.Page);
+
             var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
 
             $scope.Filter.Options = [];
@@ -88,7 +90,7 @@ angular.module('Huijm')
                     $scope.Filter.Client = '';
                 }
 
-                // callback();
+                callback();
 			};
             //widget.ajaxRequest({
             //    scope: $scope,
@@ -99,9 +101,9 @@ angular.module('Huijm')
             //    }
             //})
 
-            $scope.$watch('Filter.Client', function () {
+            // $scope.$watch('Filter.Client', function () {
                 // callback();
-            });
+            // });
         }
     };
 });

@@ -12,8 +12,9 @@ angular.module('Huijm', [
 
     // $ionicViewSwitcher,
     $ionicPlatform,
+    // $ionicConfigProvider,
 
-    $cordovaNetwork,
+    // $cordovaNetwork,
     $cordovaKeyboard,
     $cordovaStatusbar,
     $cordovaAppVersion,
@@ -31,6 +32,8 @@ angular.module('Huijm', [
         $rootScope.apiSocket = 'http://testapi.huijiame.com/manage/';
     // }
 
+    $rootScope.isHybrid = window.isHybridCreate ? true : false; 
+
     // 获取本地用户信息
     $rootScope.UserInfo = (function () {
         var UserInfo = cachePool.pull('UserInfo');
@@ -42,7 +45,12 @@ angular.module('Huijm', [
         return UserInfo;
     })();
 
+    
+
     $ionicPlatform.ready(function() {
+        
+        if (!$rootScope.isHybrid) return;
+
         // $cordovaStatusbar.overlaysWebView(true);
         $cordovaStatusbar.style(1);
         // $cordovaStatusbar.styleColor('black');
@@ -52,10 +60,10 @@ angular.module('Huijm', [
         $cordovaKeyboard.hideAccessoryBar(true);
         $cordovaKeyboard.disableScroll(true);
 
-        var isOnline = $cordovaNetwork.isOnline();
-        $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
-            widget.msgToast("亲!世界上最遥远的距离就是木有网~");
-        });
+        // var isOnline = $cordovaNetwork.isOnline();
+        // $rootScope.$on('$cordovaNetwork:offline', function(event, networkState){
+        //     widget.msgToast("亲!世界上最遥远的距离就是木有网~");
+        // });
 
         // navigator.splashscreen.hide();
         // $cordovaSplashscreen.hide();
@@ -72,23 +80,23 @@ angular.module('Huijm', [
             $rootScope.appVersion = version;
         });
     });
+        
 
-
-    // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-    //     if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
-    //         event.preventDefault();
-    //         $ionicViewSwitcher.nextDirection('none');
-    //         $state.go('report.login');
-    //         return;
-    //     } else {
-    //         if (toState.name == 'report.login') {
-    //             $ionicViewSwitcher.nextDirection('none');
-    //             $state.go('report.index', {}, {
-    //                 reload: true
-    //             });
-    //         }
-    //     }
-    // });
+        // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        //     if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
+        //         event.preventDefault();
+        //         $ionicViewSwitcher.nextDirection('none');
+        //         $state.go('report.login');
+        //         return;
+        //     } else {
+        //         if (toState.name == 'report.login') {
+        //             $ionicViewSwitcher.nextDirection('none');
+        //             $state.go('report.index', {}, {
+        //                 reload: true
+        //             });
+        //         }
+        //     }
+        // });
 })
 .config( function ($stateProvider, $urlRouterProvider) {
 
@@ -96,7 +104,7 @@ angular.module('Huijm', [
 
     .state('report', {
         abstract: true, // 为子状态提供一个 base url，其下所有子状态的 url 都是相对父状态的
-        url: '/mg'
+        url: '/report'
         // templateUrl: 'code/tp/main.html',
     })
 
@@ -128,8 +136,8 @@ angular.module('Huijm', [
     });
 
 
-
+    // $ionicConfigProvider.views.swipeBackEnabled(true);
     // $urlRouterProvider.when('', '/index.htm');
-    $urlRouterProvider.otherwise('/mg/login.htm');
+    $urlRouterProvider.otherwise('/report/index.htm');
 
 });

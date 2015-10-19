@@ -12,9 +12,9 @@ angular.module('Huijm')
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
             console.log($attrs.title);
-            if ($scope.Page) $scope.Page = {};
+            if (!$scope.Header) $scope.Header = {};
 
-            $scope.Page.Title = $attrs.title || '';
+            $scope.Header.Title = $attrs.title || '';
         }
     };
 });

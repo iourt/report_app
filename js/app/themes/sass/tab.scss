@@ -91,3 +91,65 @@
     }
 
 }
+
+.mod_tab_time {
+    background: #eee;
+    @include box($align: center);
+
+    ul.t_type {
+        // -webkit-box-flex: 1;
+        display: block;
+        margin-right: 10px;
+        @include box($align: center);
+        li {
+            display: block;
+            line-height: 30px;
+            padding: 0 20px;
+            cursor: pointer;
+            &.current {
+                background: $blue;
+                color: #fff;
+            }
+        }
+    }
+
+    div.t_calendar {
+        @include box();
+        & > * {
+            margin-right: 10px;
+        }
+    }
+
+    div.t_blank {
+        width: 0;
+        -webkit-box-flex: 1;
+    }
+
+    div.t_btn {
+        @include box($align: center);
+        p {
+            // border: 1px solid #bbb;
+            line-height: 20px;
+            background: #fff;
+            margin-right: 10px;
+            padding: 0 5px;
+            cursor: pointer;
+            
+            @include border-half($type: all);
+
+            &:last-child {
+                margin-right: 5px;
+            }
+            &.current {
+                background: $blue;
+                border: 1px solid $blue;
+                color: #fff;
+            }
+            &.disable {
+                background: #ddd;
+                border: 1px solid #ddd;
+                color: #bbb;
+            }
+        }
+    }
+}

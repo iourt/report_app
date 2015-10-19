@@ -1,5 +1,7 @@
 <ion-header-bar class="mod_header" align-title="center" no-tap-scroll="true">
     <button page-back class="back_button"></button>
     
-    <h1 class="title" ng-bind-html="Page.Title"></h1>
+    <h1 class="title" ng-bind-html="Header.Title"></h1>
+
+    <button menu-toggle="right" class="button button-icon icon ion-navicon" ng-click="toggleRightSideMenu()"></button>
 </ion-header-bar>

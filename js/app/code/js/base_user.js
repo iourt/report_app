@@ -77,88 +77,9 @@ angular.module('Huijm')
                     $scope.DataList.Y[0] = arr['activeUser'].reverse();
                     $scope.DataList.Y[1] = arr['activePer'].reverse();
                 }
-                
-                $scope.showChart();
             }
         });
     };
 
-    // $scope.getData();
-
-    $scope.showChart = function () {
-        $('#chart').highcharts({
-            chart: {
-                zoomType: 'xy'
-            },
-            title: {
-                text: $scope.Page.TimeText,
-                align: 'right',
-                margin: 20,
-                style: {
-                    fontSize: '12px',
-                    color: '#999'
-                }
-            },
-            xAxis: [ {categories: $scope.DataList.X} ],
-            yAxis: [
-                { // Primary yAxis
-                    title: {
-                        text: '活跃用户(人数)',
-                        style: { color: '#000' }
-                    },
-                    labels: {
-                        format: '{value}',
-                        style: { color: '#000' }
-                    }
-                },
-                { // Secondary yAxis
-                    title: {
-                        text: '活跃度(百分比)',
-                        style: { color: '#f30' }
-                    },
-                    labels: {
-                        format: '{value}%',
-                        style: { color: '#f30' }
-                    },
-                    opposite: true
-                }
-            ],
-            tooltip: {
-                shared: true
-            },
-            // legend: {
-            //     layout: 'horizontal',
-            //     align: 'left',
-            //     x: 0,
-            //     verticalAlign: 'top',
-            //     y: 0,
-            //     padding: 0,
-            //     floating: true,
-            //     backgroundColor: '#fff'
-            // },
-            credits:{
-                 enabled: false
-            },
-            series: [
-                {
-                    name: '活跃用户(人数)',
-                    color: '#000',
-                    type: 'spline',
-                    data: $scope.DataList.Y[0],
-                    // data: [2],
-                    tooltip: { valueSuffix: '人' }
-                },
-                {
-                    name: '活跃度(百分比)',
-                    color: '#f30',
-                    // type: 'column',
-                    type: 'spline',
-                    yAxis: 1,
-                    data: $scope.DataList.Y[1],
-                    tooltip: { valueSuffix: '%' }
-
-                }
-            ]
-        });
-    }
+    $scope.getData();
 });

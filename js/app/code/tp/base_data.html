@@ -1,49 +1,72 @@
 <header-bar title="数据概况"></header-bar>
 
-<ion-view>
-    <ion-content class="mod_wrapper mb20" delegate-handle="mainScroll">
-    <!-- <ion-content class="mod_wrapper mb20"> -->
-        <div class="mod_blank mb10">
-            <h2>总体数据</h2>
-            <ul class="mod_table">
-                <li ng-repeat="(k, v) in DataList.Basic track by $index">
-                    <div>
-                        <p>{{v.name}}</p>
-                        <p>{{v.num}}</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+<ion-side-menus enable-menu-with-back-views="true">
+    <!-- Left menu -->
+<!--     <ion-side-menu side="left">
+    </ion-side-menu>
+ -->
+    <ion-side-menu-content>
+        <ion-view>
+            <ion-content class="mod_wrapper mb20" delegate-handle="mainScroll">
+            <!-- <ion-content class="mod_wrapper mb20"> -->
+                <div class="mod_blank mb10">
+                    <h2>总体数据</h2>
+                    <ul class="mod_table">
+                        <li ng-repeat="(k, v) in DataList.Basic track by $index">
+                            <div>
+                                <p>{{v.name}}</p>
+                                <p>{{v.num}}</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
 
-        <div class="mod_blank mb10">
-            <h2>筛选条件</h2>
-            <filter-bar type="data" callback="getData"></filter-bar>
-            <!-- <tab-data callback='getData'></tab-data> -->
-        </div>
+                <div class="mod_blank mb10">
+                    <h2>筛选条件</h2>
+                    <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
+                    <filter-bar type="data" callback="getData"></filter-bar>
+                </div>
 
-        <!-- <div id="chart" style="width:{{Page.X}}"></div> -->
+                <!-- <div id="chart" style="width:{{Page.X}}"></div> -->
 
-        <div class="mod_blank">
-            <h2>数据明细</h2>
-            <ion-scroll direction="x" zooming="false" scrollbar-x="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll">
-            <!-- <ion-scroll direction="x" scrollbar-x="false" locking="false"> -->
-            <dl class="list_table">
-                <dt>
-                    <p style="width:90px;">日期</p>
-                    <p>激活用户（{{a1}}）</p>
-                    <p>注册用户（{{a2}}）</p>
-                    <p>认证用户（{{a3}}）</p>
-                    <p>开通小区（{{a4}}）</p>
-                </dt>
-                <dd ng-repeat="(k, v) in DataList.List track by $index">
-                    <p>{{v.date}}</p>
-                    <p >{{v.cate_1}}</p>
-                    <p>{{v.cate_2}}</p>
-                    <p>{{v.cate_3}}</p>
-                    <p>{{v.cate_4}}</p>
-                </dd>
-            </dl>
-            </ion-scroll>
-        </div>
-    </ion-content>
-</ion-view>
+                <div class="mod_blank">
+                    <h2>数据明细</h2>
+                    <ion-scroll direction="x" zooming="false" scrollbar-x="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll">
+                    <!-- <ion-scroll direction="x" scrollbar-x="false" locking="false"> -->
+                    <dl class="list_table">
+                        <dt>
+                            <p style="width:90px;">日期</p>
+                            <p>激活用户（{{a1}}）</p>
+                            <p>注册用户（{{a2}}）</p>
+                            <p>认证用户（{{a3}}）</p>
+                            <p>开通小区（{{a4}}）</p>
+                        </dt>
+                        <dd ng-repeat="(k, v) in DataList.List track by $index">
+                            <p>{{v.date}}</p>
+                            <p >{{v.cate_1}}</p>
+                            <p>{{v.cate_2}}</p>
+                            <p>{{v.cate_3}}</p>
+                            <p>{{v.cate_4}}</p>
+                        </dd>
+                    </dl>
+                    </ion-scroll>
+                </div>
+            </ion-content>
+        </ion-view>
+    </ion-side-menu-content>
+
+    <!-- Right menu -->
+    <ion-side-menu side="right">
+        <ul class="menu_side">
+            <li>123123</li>
+            <li>123123</li>
+            <li>123123</li>
+            <li>123123</li>
+            <li>123123</li>
+            <li>123123</li>
+            <li>123123</li>
+            <li>123123</li>
+        </ul>
+    </ion-side-menu>
+
+</ion-side-menus>

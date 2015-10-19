@@ -99,6 +99,14 @@ module.exports = function (gulp, $) {
         return gulp.src(codePath+'index.html')
             .pipe(
                 $.inject(
+                    gulp.src(codePath+'lib/**/*.js', {read: false}), { 
+                        relative: true, 
+                        name: 'injectlib' 
+                    }
+                )
+            )
+            .pipe(
+                $.inject(
                     gulp.src(codePath+'frame/**/*.js', {read: false}), { 
                         relative: true, 
                         name: 'injectframe' 
@@ -192,16 +200,14 @@ module.exports = function (gulp, $) {
     gulp.task('minjs', function() {
         //--框架JS压缩合并
         var framejs = [
-                codePath+'lib/jquery-1.8.3.min.js',
-                codePath+'lib/highcharts.js',
-                
-                codePath+'lib/angular.js',
-                codePath+'lib/ionic.js',
-                codePath+'frame/**/*.js'
+                // codePath+'lib/angular.js',
+                codePath+'lib/*.js',
+                codePath+'frame/*.js'
             ];
 
         gulp.src(framejs)
             .pipe($.concat('frame.js'))
+            .pipe($.replace(/isHybridCreate=false/g, 'isHybridCreate=true'))
             .pipe($.uglify())
             .pipe(gulp.dest(buildFolder));
 

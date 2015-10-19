@@ -14,18 +14,19 @@ angular.module('Huijm')
     $ionicHistory,
     $ionicViewSwitcher,
 
-    cachePool
+    cachePool,
+    toJump
 ) {
 
-    // 获取本地用户信息
-    $rootScope.UserInfo = (function () {
-        var UserInfo = cachePool.pull('UserInfo');
+    // // 获取本地用户信息
+    // $rootScope.UserInfo = (function () {
+    //     var UserInfo = cachePool.pull('UserInfo');
 
-        if (!UserInfo) {
-            UserInfo = {};
-        }
-        return UserInfo;
-    })();
+    //     if (!UserInfo) {
+    //         UserInfo = {};
+    //     }
+    //     return UserInfo;
+    // })();
 
 
     var toastTimer = null,
@@ -200,7 +201,10 @@ angular.module('Huijm')
             
             $rootScope.UserInfo = {};
 
-            $state.go('report.login');
+            toJump({
+                direction: 'forward',
+                router: 'report.login'
+            })
         },
 
         /**

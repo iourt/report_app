@@ -4,6 +4,14 @@ angular.module('Huijm')
     $rootScope,
     $stateParams,
 
-    widget
+    widget,
+    toJump
 ){
+
+    if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
+        toJump({
+            direction: 'forward',
+            router: 'report.login'
+        });
+    }
 });
