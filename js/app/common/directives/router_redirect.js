@@ -26,6 +26,7 @@ angular.module('Huijm')
 .directive('pageJump', function (
     $window,
     $state,
+    $timeout,
     $rootScope,
     $stateParams,
     $ionicHistory,
@@ -36,6 +37,11 @@ angular.module('Huijm')
         link: function (scope, element, attrs) {
 
             element.on('click', function (event) {
+                if (!$rootScope.UserInfo.Auth) {
+                    scope.showLogin();
+                    return;
+                };
+
                 var direction = "forward";
 
                 if (attrs.pageJump == "none") {
@@ -67,10 +73,15 @@ angular.module('Huijm')
 
 .service('toJump', function (
     $state,
-
+    
     $ionicViewSwitcher
 ) {
     var toJump = function (params) {
+        // if (!$rootScope.UserInfo.Auth) {
+        //     $scope.showLogin();
+        //     return;
+        // };
+
         var direction = params.direction || 'none',
             router = params.router,
             options = params.options || {};

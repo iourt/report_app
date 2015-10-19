@@ -38,9 +38,7 @@ angular.module('Huijm', [
     $rootScope.UserInfo = (function () {
         var UserInfo = cachePool.pull('UserInfo');
 
-        if (!UserInfo) {
-            UserInfo = { UserId: 0 };
-        }
+        if (!UserInfo) UserInfo = {};
 
         return UserInfo;
     })();

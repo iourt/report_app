@@ -1,0 +1,19 @@
+<div class="user_login_pop">
+    <div class="this_cancel" ng-click="closeLogin()">取消</div>
+
+    <dl>
+        <dt></dt>
+        <dd>
+            <ul>
+                <li><input ng-model="tInput.UserName" type="tel" placeholder="输入用户名" /></li>
+                <li><input ng-model="tInput.Password" type="password" placeholder="输入密码" /></li>
+                <li class="this_login" ng-click="toLogin()">登录</li>
+          <!--       <li class="this_link">
+                    <div page-jump data-router="forum.login-forget">找回密码</div>
+                    <p></p>
+                    <div page-jump data-router="forum.reg-create">注册账号</div>
+                </li> -->
+            </ul>
+        </dd>
+    </dl>
+</div>

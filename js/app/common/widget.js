@@ -156,10 +156,9 @@ angular.module('Huijm')
 
                 } else {
                     if (data.code == 1100) {
-                        self.cleanLogin();
+                        self.msgToast('请登录！');
+                        self.cleanLogin($scope);
                     }
-                    self.msgToast('数据请求错误！');
-
                 }
 
                 $ionicLoading.hide();
@@ -196,15 +195,11 @@ angular.module('Huijm')
         /**
          * 注销用户登录信息
          */
-        cleanLogin: function () {
+        cleanLogin: function (scope) {
             cachePool.remove("UserInfo");
             
             $rootScope.UserInfo = {};
-
-            toJump({
-                direction: 'forward',
-                router: 'report.login'
-            })
+            scope.showLogin();
         },
 
         /**

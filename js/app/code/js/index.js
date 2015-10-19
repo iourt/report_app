@@ -8,10 +8,10 @@ angular.module('Huijm')
     toJump
 ){
 
-    if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
-        toJump({
-            direction: 'forward',
-            router: 'report.login'
-        });
-    }
+    // if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
+    //     toJump({
+    //         direction: 'forward',
+    //         router: 'report.login'
+    //     });
+    // }
 });
