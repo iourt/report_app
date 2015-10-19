@@ -6,6 +6,7 @@ Thumbs.db
 /js/node_modules/
 /js/.tmp/
 /js/build/
+/js/app/themes/*.css
 /.folder
 
 /client/
