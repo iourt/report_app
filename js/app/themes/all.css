@@ -10100,52 +10100,40 @@ h4 {
       color: #fff;
       margin-left: 10px; }
 
-.mod_tab_time {
+.mod_tab_time ul.t_type {
   background: #eee;
+  display: block;
+  margin-bottom: 10px;
   display: -webkit-box;
   -webkit-box-align: center; }
-  .mod_tab_time ul.t_type {
+  .mod_tab_time ul.t_type li {
     display: block;
-    margin-right: 10px;
-    display: -webkit-box;
-    -webkit-box-align: center; }
-    .mod_tab_time ul.t_type li {
-      display: block;
-      line-height: 30px;
-      padding: 0 20px;
-      cursor: pointer; }
-      .mod_tab_time ul.t_type li.current {
-        background: #229ffc;
-        color: #fff; }
-  .mod_tab_time div.t_calendar {
-    display: -webkit-box; }
-    .mod_tab_time div.t_calendar > * {
-      margin-right: 10px; }
-  .mod_tab_time div.t_blank {
-    width: 0;
-    -webkit-box-flex: 1; }
-  .mod_tab_time div.t_btn {
-    display: -webkit-box;
-    -webkit-box-align: center; }
-    .mod_tab_time div.t_btn p {
-      line-height: 20px;
-      background: #fff;
-      margin-right: 10px;
-      padding: 0 5px;
-      cursor: pointer;
-      border-width: 1;
-      border: 1px solid #dedede;
-      -webkit-border-image: url(images/icon_border_half_gray.png) 2 stretch; }
-      .mod_tab_time div.t_btn p:last-child {
-        margin-right: 5px; }
-      .mod_tab_time div.t_btn p.current {
-        background: #229ffc;
-        border: 1px solid #229ffc;
-        color: #fff; }
-      .mod_tab_time div.t_btn p.disable {
-        background: #ddd;
-        border: 1px solid #ddd;
-        color: #bbb; }
+    line-height: 30px;
+    padding: 0 10px;
+    cursor: pointer; }
+    .mod_tab_time ul.t_type li.current {
+      background: #229ffc;
+      color: #fff; }
+
+.mod_tab_time div.t_blank {
+  width: 0;
+  -webkit-box-flex: 1; }
+
+.mod_tab_time div.t_btn {
+  background: #eee;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-box-align: center; }
+  .mod_tab_time div.t_btn p {
+    line-height: 30px;
+    padding: 0 10px;
+    cursor: pointer; }
+    .mod_tab_time div.t_btn p.current {
+      background: #229ffc;
+      color: #fff; }
+    .mod_tab_time div.t_btn p.disable {
+      background: #ddd;
+      color: #bbb; }
 
 .mod_calendar {
   position: relative;
