@@ -9303,14 +9303,18 @@ img {
 input {
   outline: none; }
 
+h1, h2, h3, h4, h5 {
+  font-size: 14px; }
+
 .mb10 {
   margin-bottom: 10px !important; }
 
 .mb20 {
   margin-bottom: 20px !important; }
 
-h1, h2, h3, h4, h5 {
-  font-size: 14px; }
+.h20 {
+  height: 20px !important;
+  overflow: hidden; }
 
 .mod_header {
   background: #229ffc;
