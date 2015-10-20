@@ -509,3 +509,63 @@ h4 {
     -webkit-transition: -webkit-transform 0.15s linear;
     -webkit-transform: translate3d(0, 100%, 0);
 }
+
+
+
+
+
+
+.mdate_title {
+    // padding-top: 60px;
+    position: fixed;
+    left: 0;
+    top: 44px;
+
+    width: 100%;
+    height: 30px;
+    z-index: 99999;
+    background: #bbb;
+
+    @include box();
+    &.t_pt {
+        top: 64px;
+    }
+
+    li {
+        line-height: 30px;
+        text-align: center;
+        @include box-flex();
+    }
+}
+.mdate_detail {
+    dl {
+        background: #f8f8f8;
+        margin-bottom: 10px;
+        dt {
+            line-height: 30px;
+            font-weight: normal;
+            text-indent: 10px;
+            background: #eee;
+            @include border-half($type: y);
+        }
+        dd {
+            @include box();
+            @include border-half($type: bottom);
+            p {
+                @include box-flex();
+                line-height: 40px;
+                text-align: center;
+                @include border-half($type: right);
+                @include last-no();
+                &.disable {
+                    color: #bbb;
+                }
+                &.select {
+                    color: #fff;
+                    background: $blue;
+                }
+            }
+        }
+    }
+}
+

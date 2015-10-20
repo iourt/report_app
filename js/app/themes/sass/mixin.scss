@@ -105,6 +105,11 @@ $border:  #ddd;
         -webkit-box-pack: $pack;
     }
 }
+@mixin box-flex() {
+    width: 0;
+    -webkit-box-flex: 1;
+}
+
 
 @mixin position(
     $position: absolute,

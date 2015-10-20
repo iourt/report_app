@@ -10,11 +10,11 @@ angular.module('Huijm')
     ShowTime,
     widget
 ){
-
     $scope.toggleRightSideMenu = function() {
         $ionicSideMenuDelegate.toggleRight();
     };
 
+    $scope.items = [1,2,2,3,33,3,3,3,3,3,3,3,3,3];
 
     $scope.Cate = {
         'id': 1,

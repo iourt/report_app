@@ -22,6 +22,11 @@ angular.module('Huijm', [
 
     cachePool
 ) {
+    var ua = navigator.userAgent.toLowerCase();
+    $rootScope.isHybrid  = window.isHybridCreate ? true : false;
+    $rootScope.isApple   = ($rootScope.isHybrid && /iphone|ipad|ipod/.test(ua)) ? true : false;
+    $rootScope.isAndroid = ($rootScope.isHybrid && /android/.test(ua)) ? true : false;
+    $rootScope.isWeixin  = /micromessenger/.test(ua) ? true : false;
 
     // alert(JSON.stringify($ionicPlatform));
     // console.log($location.$$host);
@@ -32,7 +37,7 @@ angular.module('Huijm', [
         $rootScope.apiSocket = 'http://testapi.huijiame.com/manage/';
     // }
 
-    $rootScope.isHybrid = window.isHybridCreate ? true : false; 
+    
 
     // 获取本地用户信息
     $rootScope.UserInfo = (function () {
@@ -104,6 +109,13 @@ angular.module('Huijm', [
         abstract: true, // 为子状态提供一个 base url，其下所有子状态的 url 都是相对父状态的
         url: '/report'
         // templateUrl: 'code/tp/main.html',
+    })
+
+    // 日历
+    .state('report.calendar', {
+        url: 'calendar',
+        templateUrl: 'code/tp/calendar.html',
+        controller: 'tCalendar'
     })
 
     // 后台登录

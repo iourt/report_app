@@ -11,10 +11,12 @@ angular.module('Huijm')
         templateUrl: 'common/directives/header_bar.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
-            console.log($attrs.title);
             if (!$scope.Header) $scope.Header = {};
 
             $scope.Header.Title = $attrs.title || '';
+
+            $scope.Header.RightText = $attrs.right ? $attrs.right.split('|')[0] : '';
+            $scope.Header.Right = $attrs.right ? $scope.$eval($attrs.right.split('|')[1]) : '';
         }
     };
 });

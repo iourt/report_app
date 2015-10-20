@@ -70,13 +70,13 @@ angular.module('Huijm')
                     }
                 };
 
-            if (!type && type == 1) {
+            if (!type || type == 1) {
                 if (month == 0) {
                     result.prev.year  = parseInt(year, 0) - 1;
                     result.prev.month = 12;
 
                     result.next.year  = parseInt(year, 0);
-                    result.next.month = parseInt(month, 0) + 2;
+                    result.next.month = 2;
                 } else if (month == 11) {
                     result.prev.year  = parseInt(year, 0);
                     result.prev.month = 11;
