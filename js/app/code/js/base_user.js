@@ -3,10 +3,14 @@ angular.module('Huijm')
     $scope,
     $rootScope,
     $stateParams,
+    $ionicSideMenuDelegate,
     
     ShowTime,
     widget
 ){
+    $scope.toggleRightSideMenu = function() {
+        $ionicSideMenuDelegate.toggleRight();
+    };
 
     $scope.Cate = {
         'activeUser': '活跃用户(人数)',

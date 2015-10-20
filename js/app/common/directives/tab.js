@@ -184,7 +184,8 @@ angular.module('Huijm')
 
                     $scope.Page.TimeType = 'calendar';
                     // $scope.Page.TimeText = $scope.Page.Calendar.next ? $scope.Page.Calendar.prev+'~'+$scope.Page.Calendar.next : $scope.Page.Calendar.prev;
-                    $scope.Page.TimeText = $scope.Page.Calendar.next ? $scope.Page.StartTime+'~'+$scope.Page.EndTime : $scope.Page.StartTime;
+                    // $scope.Page.TimeText = $scope.Page.Calendar.next ? $scope.Page.StartTime+'~'+$scope.Page.EndTime : $scope.Page.StartTime;
+                    $scope.Page.TimeText = ($scope.Page.StartTime == $scope.Page.EndTime) ? $scope.Page.StartTime : $scope.Page.StartTime+'~'+$scope.Page.EndTime;
                     
                     callback();
                 }

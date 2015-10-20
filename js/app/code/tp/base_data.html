@@ -22,9 +22,7 @@
                 </div>
 
                 <div class="mod_blank mb10">
-                    <h2>筛选条件</h2>
-
-                    <div page-jump data-router="report.calendar">日期选择</div>
+                    <h2>筛选条件<i>{{Page.TimeText}}</i></h2>
 
                     <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
                     <filter-bar type="data" callback="getData"></filter-bar>
@@ -89,7 +87,7 @@
 
     <!-- Right menu -->
     <ion-side-menu side="right">
-        <page-calendar ng-model="Date"></page-calendar>
+        <page-calendar ng-model="Page.Calendar"></page-calendar>
     </ion-side-menu>
 
 </ion-side-menus>

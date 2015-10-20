@@ -1,32 +1,46 @@
 <header-bar title="活跃用户"></header-bar>
 
-<ion-view>
-    <ion-content overflow-scroll="true" class="mod_wrapper">
-        <div class="mod_blank mb10">
-            <h2>筛选条件</h2>
-            <tab-time mid="show" right="show" hide="1" callback="getData"></tab-time>
-            <filter-bar type="data" class="mb10" callback="getData"></filter-bar>
-        </div>
+<ion-side-menus enable-menu-with-back-views="true">
+    <!-- Left menu -->
+    <!-- <ion-side-menu side="left"></ion-side-menu> -->
 
-        <div class="mod_blank mb10">
-            <h2>数据明细</h2>
-            <dl class="list_table">
-                <dt>
-                    <p>时间</p>
-                    <p>活跃用户(人数)</p>
-                    <p>活跃度(百分比)</p>
-                </dt>
-                <dd ng-repeat="(k, v) in DataList.List track by $index">
-                    <p>{{v.date}}</p>
-                    <p>{{v.activeUser}}</p>
-                    <p>{{v.activePer}}%</p>
-                </dd>
-            </dl>
-        </div>
+    <ion-side-menu-content>
 
-        <div class="h20"></div>
-    </ion-content>
-</ion-view>
+        <ion-view>
+            <ion-content overflow-scroll="true" class="mod_wrapper">
+                <div class="mod_blank mb10">
+                    <h2>筛选条件<i>{{Page.TimeText}}</i></h2>
+                    <tab-time mid="show" right="show" hide="1" callback="getData"></tab-time>
+                    <filter-bar type="data" class="mb10" callback="getData"></filter-bar>
+                </div>
+
+                <div class="mod_blank mb10">
+                    <h2>数据明细</h2>
+                    <dl class="list_table">
+                        <dt>
+                            <p>时间</p>
+                            <p>活跃用户(人数)</p>
+                            <p>活跃度(百分比)</p>
+                        </dt>
+                        <dd ng-repeat="(k, v) in DataList.List track by $index">
+                            <p>{{v.date}}</p>
+                            <p>{{v.activeUser}}</p>
+                            <p>{{v.activePer}}%</p>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="h20"></div>
+            </ion-content>
+        </ion-view>
+    </ion-side-menu-content>
+
+    <!-- Right menu -->
+    <ion-side-menu side="right">
+        <page-calendar ng-model="Page.Calendar"></page-calendar>
+    </ion-side-menu>
+
+</ion-side-menus>
 
 <show-login></show-login>
 

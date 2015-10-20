@@ -93,6 +93,7 @@ angular.module('Huijm')
 
     $scope.getData();
 
+
     // $timeout(function(){
     //     //return false; // <--- comment this to "fix" the problem
     //     var sv = $ionicScrollDelegate.$getByHandle('horizontal').getScrollView();

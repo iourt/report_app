@@ -19,8 +19,17 @@
             </div>
 
             <ion-infinite-scroll on-infinite="setCalendar('next')" distance="1%"></ion-infinite-scroll>
+
         </ion-content>
     </ion-view>
 
-    <!-- <show-login></show-login> -->
+    <ion-footer-bar align-title="left" class="mod_footer">
+        <div class="buttons" menu-close>
+            <button class="button">取消</button>
+        </div>
+        <h1 class="title">{{Init.input}}</h1>
+        <div class="buttons" menu-close ng-click="toSubmit()">
+            <button class="button">确定</button>
+        </div>
+    </ion-footer-bar>
 </section>

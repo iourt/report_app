@@ -22,6 +22,7 @@ angular.module('Huijm')
                 isLoading: false,
                 prevDate: '', //----------------选择的开始日期(临时)
                 nextDate: '', //-----------------选择的结束日期(临时)
+                input: '',
 
                 pyear:  date.getFullYear(),
                 pmonth: date.getMonth(),
