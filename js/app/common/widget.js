@@ -155,10 +155,8 @@ angular.module('Huijm')
                     // $scope.Page.Time = Response.Time;
 
                 } else {
-                    if (data.code == 1100) {
-                        self.msgToast('请登录！');
-                        self.cleanLogin($scope);
-                    }
+                    self.msgToast(data.msg);
+                    self.cleanLogin($scope);
                 }
 
                 $ionicLoading.hide();

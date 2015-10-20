@@ -34,7 +34,7 @@ angular.module('Huijm', [
     // $rootScope.apiSocket = 'http://api.huijiame.com/manage/';
 
     // if (host !== 'report.huijiame.com') {
-        $rootScope.apiSocket = 'http://testapi.huijiame.com/manage/';
+        $rootScope.apiSocket = 'http://api.huijiame.com/manage/';
     // }
 
     
