@@ -107,8 +107,18 @@
     dt {
         background: #eee;
         font-weight: bold;
+        vertical-align: middle;
         p {
+            vertical-align: middle;
             padding: 5px 10px;
+            line-height: 20px;
+            i {
+                display: block;
+                font-size: 12px;
+                line-height: 12px;
+                color: #777;
+                font-weight: normal;
+            }
         }
     }
     dd {

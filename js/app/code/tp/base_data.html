@@ -31,14 +31,14 @@
                     <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
                     <filter-bar type="data" callback="getData"></filter-bar>
                 </div>
-                <div id="chart" style="width:{{Page.X}}" ng-show="View == 'photo'"></div>
+                <div id="chart" ng-show="View == 'photo'"></div>
 
                 <!-- <div id="chart" style="width:{{Page.X}}"></div> -->
 
                 <div class="mod_blank">
                     <h2>数据明细</h2>
 
-                    <div class="list_data">
+                    <div class="list_data" ng-if="View == 'word'">
                         <dl ng-repeat="(k, v) in DataList.List track by $index">
                             <dt>{{v.date}}</dt>
                             <dd>
@@ -63,6 +63,23 @@
                             </dd>
                         </dl>
                     </div>
+
+                    <dl class="list_table" ng-if="View == 'photo'">
+                        <dt>
+                            <p style="width:90px;">日期</p>
+                            <p>激活用户<i>{{a1}}</i></p>
+                            <p>注册用户<i>{{a2}}</i></p>
+                            <p>认证用户<i>{{a3}}</i></p>
+                            <p>开通小区<i>{{a4}}</i></p>
+                        </dt>
+                        <dd ng-repeat="(k, v) in DataList.List track by $index">
+                            <p>{{v.date}}</p>
+                            <p >{{v.cate_1}}</p>
+                            <p>{{v.cate_2}}</p>
+                            <p>{{v.cate_3}}</p>
+                            <p>{{v.cate_4}}</p>
+                        </dd>
+                    </dl>
 
                     <!-- <ion-scroll direction="x" zooming="false" scrollbar-x="false" delegate-handle="horizontal" horizontal-scroll-fix="mainScroll"> -->
                     <!-- <ion-scroll direction="x" scrollbar-x="false" locking="false"> -->

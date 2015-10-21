@@ -25,7 +25,6 @@ angular.module('Huijm')
     };
 
     $scope.Page = {
-        X: $(window).width()+'px',
         Time: new Date().getTime(), //-------服务器当前时间
         StartTime: '', //--查询开始时间
         EndTime: '' //----查询结束时间

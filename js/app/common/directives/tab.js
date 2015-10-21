@@ -324,6 +324,7 @@ angular.module('Huijm')
             function changeview() {
                 if ($rootScope.isHybrid && $rootScope.View == 'photo') window.screen.lockOrientation('landscape');
                 if ($rootScope.isHybrid && $rootScope.View == 'word') window.screen.lockOrientation('portrait');
+                // $scope.Page.X = $(window).width()+'px';
             }
         }
     };

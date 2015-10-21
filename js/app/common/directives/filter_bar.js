@@ -48,6 +48,7 @@ angular.module('Huijm')
                 });
 
                 $scope.Filter.Client = '';
+                callback();
 			};
 
 			$scope.setFilter = function (e) {
