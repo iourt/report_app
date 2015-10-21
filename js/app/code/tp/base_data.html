@@ -10,6 +10,10 @@
             <!-- <ion-content class="mod_wrapper" delegate-handle="mainScroll"> -->
             <ion-content class="mod_wrapper">
                 <div class="mod_blank mb10">
+                    <tab-view></tab-view>
+                </div>
+
+                <div class="mod_blank mb10">
                     <h2>总体数据</h2>
                     <ul class="mod_table">
                         <li ng-repeat="(k, v) in DataList.Basic track by $index">
@@ -21,12 +25,13 @@
                     </ul>
                 </div>
 
-                <div class="mod_blank mb10">
+                <div class="mod_blank" ng-class="{mb10: View=='word'}">
                     <h2>筛选条件<i>{{Page.TimeText}}</i></h2>
 
                     <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
                     <filter-bar type="data" callback="getData"></filter-bar>
                 </div>
+                <div id="chart" style="width:{{Page.X}}" ng-show="View == 'photo'"></div>
 
                 <!-- <div id="chart" style="width:{{Page.X}}"></div> -->
 

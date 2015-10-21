@@ -28,8 +28,10 @@
     background-image: url(images/bg11.jpg);
     background-repeat: no-repeat;
     background-position: right 0;
-    // background-position: 0 0;
     background-size: auto 100%;
+    &.t_bg {
+        background-size: 200% auto;
+    }
 }
 
 .mod_index {
@@ -421,6 +423,9 @@ h4 {
     
     background: url(images/bg11.jpg) no-repeat 0 0;
     background-size: auto 100%;
+    &.t_bg {
+        background-size: 200% auto;
+    }
 
     .this_cancel {
         color: #fff;

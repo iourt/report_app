@@ -32,6 +32,7 @@ angular.module('Huijm')
     };
 
     $scope.Page = {
+        X: $(window).width()+'px',
         Time: new Date().getTime(), //-------服务器当前时间
         StartTime: '', //--查询开始时间
         EndTime: '' //----查询结束时间
@@ -42,7 +43,9 @@ angular.module('Huijm')
     // 构造数据结构
     $scope.DataList = {
         Basic: [], // 基础数据
-        List: [] // 列表数据
+        List: [], // 列表数据
+        X: [],
+        Y: []
     };
 
     // $scope.Page.X = (angular.element(document.querySelector('body')).width()-80)+'px';
@@ -64,6 +67,8 @@ angular.module('Huijm')
             success: function (res) {
                 $scope.DataList.Basic = [];
                 $scope.DataList.List = res.data.list;
+                $scope.DataList.X = [];
+                $scope.DataList.Y = [];
 
                 for(var i in res.data.overview) {
                     $scope.DataList.Basic.push({
@@ -86,12 +91,68 @@ angular.module('Huijm')
                     $scope.a2 = widget.getSum(arr['cate_2']),
                     $scope.a3 = widget.getSum(arr['cate_3']),
                     $scope.a4 = widget.getSum(arr['cate_4']);
+
+                    
+                    $scope.DataList.X = arr['date'].reverse();
+                    $scope.DataList.Y = [
+                        {
+                            name: '激活用户',
+                            data: arr['cate_1'].reverse()
+                        },
+                        {
+                            name: '注册用户',
+                            data: arr['cate_2'].reverse()
+                        },
+                        {
+                            name: '认证用户',
+                            data: arr['cate_3'].reverse()
+                        },
+                        {
+                            name: '激活小区',
+                            data: arr['cate_4'].reverse()
+                        }
+                    ];
                 }
+
+                $scope.showChart();
             }
         });
     };
 
     $scope.getData();
+
+
+    $scope.showChart = function () {
+        $('#chart').highcharts({
+            chart: {
+                // renderTo : 'chart',
+                type: 'spline'
+            },
+            title: {
+                text: $scope.Page.TimeText,
+                align: 'right',
+                margin: 20,
+                style: {
+                    fontSize: '12px',
+                    color: '#999'
+                }
+            },
+            xAxis: {
+                categories: $scope.DataList.X
+            },
+
+            yAxis: {
+                title: {
+                    text: '基础数据统计分析'
+                }
+            },
+            credits:{
+                 enabled: false
+            },
+
+            series: $scope.DataList.Y
+        });
+    };
 
 
     // $timeout(function(){

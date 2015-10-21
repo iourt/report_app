@@ -292,9 +292,8 @@ angular.module('Huijm')
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs) {
 
-            if (!$scope.Page) $scope.Page = {};
-
-            $scope.Page.View = 'photo';
+            if (!$rootScope.View) $rootScope.View = 'word';
+            changeview();
 
             // 设置回调函数
             var callback = $attrs.callback ? $scope.$eval($attrs.callback) : function(){};
@@ -302,11 +301,12 @@ angular.module('Huijm')
             $scope.setView = function (e) {
                 var $that = angular.element(e.delegationTarget);
 
-                $scope.Page.X = (angular.element(document.querySelector('body')).width()-220)+'px';
-                $scope.Page.View = $that.attr('data-type');
+                $rootScope.View = $that.attr('data-type');
 
+                changeview();
+                
                 if ($attrs.menu == 'show') {
-                    if ($scope.Page.View == 'word') {
+                    if ($rootScope.View == 'word') {
                         $element.find('div').css('display', '-webkit-box');
                     } else {
                         $element.find('div').css('display', 'none');
@@ -321,6 +321,10 @@ angular.module('Huijm')
                 widget.msgToast('功能开发中......');
             };
 
+            function changeview() {
+                if ($rootScope.isHybrid && $rootScope.View == 'photo') window.screen.lockOrientation('landscape');
+                if ($rootScope.isHybrid && $rootScope.View == 'word') window.screen.lockOrientation('portrait');
+            }
         }
     };
 });

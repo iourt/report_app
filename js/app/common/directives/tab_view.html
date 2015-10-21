@@ -1,7 +1,7 @@
 <div ngd-click="setView($event)" selector="li" class="mod_tab_02">
     <ul>
-        <li data-type="photo" ng-class="{current: Page.View == 'photo'}">视图报表</li>
-        <li data-type="word" ng-class="{current: Page.View == 'word'}">文字报表</li>
+        <li data-type="word" ng-class="{current: View == 'word'}">文字报表模式</li>
+        <li data-type="photo" ng-class="{current: View == 'photo'}">视图报表模式</li>
     </ul>
 
     <div ngd-click="setExport($event)" selector="p">

@@ -85,7 +85,15 @@ angular.module('Huijm', [
     });
         
 
-        // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        // if (!$rootScope.isHybrid) return;
+        // if (toState.name == 'report.view') {
+        //     window.screen.lockOrientation('landscape');
+        // } else {
+        //     window.screen.lockOrientation('portrait');
+        // }
+
+        
         //     if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
         //         event.preventDefault();
         //         $ionicViewSwitcher.nextDirection('none');
@@ -99,7 +107,7 @@ angular.module('Huijm', [
         //             });
         //         }
         //     }
-        // });
+    // });
 })
 .config( function ($stateProvider, $urlRouterProvider) {
 
@@ -124,6 +132,14 @@ angular.module('Huijm', [
         url: '/login.htm',
         templateUrl: 'code/tp/login.html',
         controller: 'tLogin'
+    })
+    
+    // 后台登录
+    .state('report.view', {
+        // cache: false,
+        url: '/view.htm',
+        templateUrl: 'code/tp/view.html',
+        controller: 'tView'
     })
 
     .state('report.index', {

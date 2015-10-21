@@ -1,17 +1,13 @@
 angular.module('Huijm')
-.controller('tBaseUser', function (
+.controller('tView', function (
     $scope,
+    $timeout,
     $rootScope,
     $stateParams,
-    $ionicSideMenuDelegate,
     
     ShowTime,
     widget
 ){
-    $scope.toggleRightSideMenu = function() {
-        $ionicSideMenuDelegate.toggleRight();
-    };
-
     $scope.Cate = {
         'activeUser': '活跃用户(人数)',
         'activePer': '活跃度(百分比)'
@@ -25,7 +21,6 @@ angular.module('Huijm')
     };
 
     $scope.Page = {
-        X: $(window).width()+'px',
         Time: new Date().getTime(), //-------服务器当前时间
         StartTime: '', //--查询开始时间
         EndTime: '' //----查询结束时间
@@ -165,5 +160,5 @@ angular.module('Huijm')
                 }
             ]
         });
-    };
+    }
 });
