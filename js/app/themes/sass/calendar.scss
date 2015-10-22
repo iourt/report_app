@@ -22,6 +22,10 @@
     }
 }
 .mdate_detail {
+    padding-top: 30px;
+    &.t_pt {
+        padding-top: 30px;
+    }
     dl {
         background: #f8f8f8;
         margin-bottom: 10px;

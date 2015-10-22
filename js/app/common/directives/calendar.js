@@ -11,7 +11,7 @@ angular.module('Huijm')
         restrict: 'E',
         replace: true,
         require: '?ngModel',
-        scope: {},
+        // scope: {},
         templateUrl: 'common/directives/calendar.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs, ngModel) {
@@ -37,7 +37,7 @@ angular.module('Huijm')
                 nmonth: date.getMonth(),
                 nday:   date.getDate()
             };
-            $scope.List = [];
+            $scope.CalendarList = [];
 
 
             // 闰年
@@ -151,11 +151,11 @@ angular.module('Huijm')
                 }
                 
                 if (type == 'prev') {
-                    $scope.List.unshift(dateObj);
+                    $scope.CalendarList.unshift(dateObj);
                     $scope.Init.isLoading = false;
                     $scope.$broadcast('scroll.refreshComplete');
                 } else {
-                    $scope.List.push(dateObj);
+                    $scope.CalendarList.push(dateObj);
                     $scope.Init.isLoading = false;
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                 }
@@ -261,7 +261,7 @@ angular.module('Huijm')
                     flag = true;
                     nextArr = $scope.Init.nextDate.split('-');
                 }
-                angular.forEach($scope.List, function (item, key) {
+                angular.forEach($scope.CalendarList, function (item, key) {
                     angular.forEach(item.Tday, function (n) {
                         angular.forEach(n, function (v, k) {
                             if (v.class == 'disable') return;

@@ -1,5 +1,5 @@
 angular.module('Huijm')
-.controller('tView', function (
+.controller('tBaseUserView', function (
     $scope,
     $timeout,
     $rootScope,

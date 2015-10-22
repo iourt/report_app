@@ -1,24 +1,15 @@
 angular.module('Huijm')
-.controller('tBaseData', function (
+
+.controller('tBaseDataView', function (
     $scope,
     $timeout,
     $rootScope,
     $stateParams,
-    $ionicScrollDelegate,
-    $ionicSideMenuDelegate,
     
     ShowTime,
-    widget,
-    toJump
+    widget
 ){
     var time = new Date().getTime();
-
-    $scope.toRight = function () {
-        toJump({
-            direction: 'forward',
-            router: 'report.base-data-view'
-        });
-    };
 
     $scope.Cate = {
         'id': 1,
@@ -28,7 +19,9 @@ angular.module('Huijm')
         'cate_4': '激活小区'
     };
 
-    $scope.Page = {};
+    $scope.Page = {
+        TimeText: '123123'
+    };
     $scope.Post = {
         Filter: {
             StartTime: ShowTime.getDay({time: time, day: -6}).target,
@@ -37,21 +30,6 @@ angular.module('Huijm')
             Client: ''
         }
     };
-
-    // 筛选项
-    // $scope.Filter = {
-    //     Time: '', //---------时间
-    //     TimeType: 'day', //--时间类型
-    //     Client: '' //--------客户端类型
-    // };
-
-    // $scope.Page = {
-    //     Time: new Date().getTime(), //-------服务器当前时间
-    //     StartTime: '', //--查询开始时间
-    //     EndTime: '' //----查询结束时间
-    // };
-    // $scope.Page.StartTime = ShowTime.getDay({time: $scope.Page.Time, day: -6}).target;
-    // $scope.Page.EndTime   = ShowTime.getDay({time: $scope.Page.Time, day: -6}).source;
 
     // 构造数据结构
     $scope.DataList = {
@@ -63,6 +41,8 @@ angular.module('Huijm')
 
     customTime();
 
+
+    $scope.View = 'photo';
     // 获取数据
     $scope.getData = function () {
         var starttime = ShowTime.getFormatDate($scope.Post.Filter.StartTime),
@@ -131,13 +111,15 @@ angular.module('Huijm')
                     ];
                 }
 
-                // $scope.showChart();
+                showChart();
             }
         });
     };
 
+    $scope.getData();
+    
 
-    $scope.showChart = function () {
+    function showChart() {
         $('#chart').highcharts({
             chart: {
                 // renderTo : 'chart',
@@ -167,26 +149,7 @@ angular.module('Huijm')
 
             series: $scope.DataList.Y
         });
-    };
-
-    // 监控筛选的改变
-    $scope.$watch('Post.Filter', function (newValue, oldValue, scope) {
-        $timeout(function() {
-            $scope.getData();
-        }, 250);
-    }, true);
-
-    // 监控日历的改变
-    $scope.$watch('Page.Calendar', function () {
-        if (!$scope.Page.Calendar) return;
-
-        $scope.Post.Filter.StartTime = $scope.Page.Calendar.prev;
-        $scope.Post.Filter.EndTime   = $scope.Page.Calendar.next || $scope.Page.Calendar.prev;
-
-        $timeout(function() {
-            $scope.getData();
-        }, 100);
-    });
+    }
 
 
     function customTime() {
@@ -195,48 +158,4 @@ angular.module('Huijm')
 
         $scope.CustomTime = (start == end) ? start : start+'~'+end;
     }
-
-
-    // $timeout(function(){
-    //     //return false; // <--- comment this to "fix" the problem
-    //     var sv = $ionicScrollDelegate.$getByHandle('horizontal').getScrollView();
-
-    //     var container = sv.__container;
-
-    //     var originaltouchStart = sv.touchStart;
-    //     var originalmouseDown = sv.mouseDown;
-    //     var originaltouchMove = sv.touchMove;
-    //     var originalmouseMove = sv.mouseMove;
-
-    //     container.removeEventListener('touchstart', sv.touchStart);
-    //     container.removeEventListener('mousedown', sv.mouseDown);
-    //     document.removeEventListener('touchmove', sv.touchMove);
-    //     document.removeEventListener('mousemove', sv.mousemove);
-
-
-    //     sv.touchStart = function(e) {
-    //       e.preventDefault = function(){}
-    //       originaltouchStart.apply(sv, [e]);
-    //     }
-
-    //     sv.touchMove = function(e) {
-    //       e.preventDefault = function(){}
-    //       originaltouchMove.apply(sv, [e]);
-    //     }
-
-    //     sv.mouseDown = function(e) {
-    //       e.preventDefault = function(){}
-    //       originalmouseDown.apply(sv, [e]);
-    //     }
-
-    //     sv.mouseMove = function(e) {
-    //       e.preventDefault = function(){}
-    //       originalmouseMove.apply(sv, [e]);
-    //     }
-
-    //     container.addEventListener("touchstart", sv.touchStart, false);
-    //     container.addEventListener("mousedown", sv.mouseDown, false);
-    //     document.addEventListener("touchmove", sv.touchMove, false);
-    //     document.addEventListener("mousemove", sv.mouseMove, false);
-    // });
 });

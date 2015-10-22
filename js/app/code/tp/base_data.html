@@ -1,5 +1,4 @@
-<header-bar title="数据概况"></header-bar>
-
+<header-bar title="数据概况" right="报表|toRight"></header-bar>
 
 <ion-side-menus enable-menu-with-back-views="true">
     <!-- Left menu -->
@@ -9,9 +8,6 @@
         <ion-view>
             <!-- <ion-content class="mod_wrapper" delegate-handle="mainScroll"> -->
             <ion-content class="mod_wrapper">
-                <div class="mod_blank mb10">
-                    <tab-view></tab-view>
-                </div>
 
                 <div class="mod_blank mb10">
                     <h2>总体数据</h2>
@@ -31,7 +27,6 @@
                     <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
                     <filter-bar type="data" callback="getData"></filter-bar>
                 </div> -->
-                <div id="chart" ng-show="View == 'photo'"></div>
 
                 <div class="mod_blank">
                     <h2>用户数据明细<i>{{CustomTime}}</i></h2>
@@ -102,9 +97,9 @@
 
                 <div class="h50"></div>
             </ion-content>
-
-            <filter-data ng-model="Post.Filter" hide="2" start="{{Post.Filter.StartTime}}" end="{{Post.Filter.EndTime}}" tab=""></filter-data>
         </ion-view>
+
+        <filter-data ng-model="Post.Filter" hide="2" start="{{Post.Filter.StartTime}}" end="{{Post.Filter.EndTime}}" route="base-data-view"></filter-data>
     </ion-side-menu-content>
 
     <!-- Right menu -->

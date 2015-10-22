@@ -85,29 +85,17 @@ angular.module('Huijm', [
     });
         
 
-    // $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        // if (!$rootScope.isHybrid) return;
-        // if (toState.name == 'report.view') {
-        //     window.screen.lockOrientation('landscape');
-        // } else {
-        //     window.screen.lockOrientation('portrait');
-        // }
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        if (!$rootScope.isHybrid) return;
 
-        
-        //     if (!$rootScope.UserInfo || !$rootScope.UserInfo.Auth) {
-        //         event.preventDefault();
-        //         $ionicViewSwitcher.nextDirection('none');
-        //         $state.go('report.login');
-        //         return;
-        //     } else {
-        //         if (toState.name == 'report.login') {
-        //             $ionicViewSwitcher.nextDirection('none');
-        //             $state.go('report.index', {}, {
-        //                 reload: true
-        //             });
-        //         }
-        //     }
-    // });
+        if (toState.name=='report.base-data-view' || toState.name=='report.base-user-view') {
+            window.screen.lockOrientation('landscape');
+            $cordovaStatusbar.hide();
+        } else {
+            window.screen.lockOrientation('portrait');
+            $cordovaStatusbar.show();
+        }
+    });
 })
 .config( function ($stateProvider, $urlRouterProvider) {
 
@@ -133,14 +121,6 @@ angular.module('Huijm', [
         templateUrl: 'code/tp/login.html',
         controller: 'tLogin'
     })
-    
-    // 后台登录
-    .state('report.view', {
-        // cache: false,
-        url: '/view.htm',
-        templateUrl: 'code/tp/view.html',
-        controller: 'tView'
-    })
 
     .state('report.index', {
         // cache: false,
@@ -154,12 +134,25 @@ angular.module('Huijm', [
         templateUrl: 'code/tp/base_data.html',
         controller: 'tBaseData'
     })
+    // 报表
+    .state('report.base-data-view', {
+        url: '/base/data/view.htm',
+        templateUrl: 'code/tp/base_data_view.html',
+        controller: 'tBaseDataView'
+    })
+
     // 基础数据-活跃用户
     .state('report.base-user', {
         url: '/base/user.htm',
         templateUrl: 'code/tp/base_user.html',
         controller: 'tBaseUser'
-    });
+    })
+    // 报表
+    .state('report.base-user-view', {
+        url: '/base/user/view.htm',
+        templateUrl: 'code/tp/base_user_view.html',
+        controller: 'tBaseUserView'
+    })
 
 
     // $ionicConfigProvider.views.swipeBackEnabled(true);
