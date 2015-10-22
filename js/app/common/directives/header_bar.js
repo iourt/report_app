@@ -3,6 +3,8 @@ angular.module('Huijm')
 .directive('headerBar', function (
     $state,
     $rootScope,
+    $ionicSideMenuDelegate,
+    
     widget
 ) {
     return {
@@ -17,6 +19,10 @@ angular.module('Huijm')
 
             $scope.Header.RightText = $attrs.right ? $attrs.right.split('|')[0] : '';
             $scope.Header.Right = $attrs.right ? $scope.$eval($attrs.right.split('|')[1]) : '';
+
+            $scope.toggleRightSideMenu = function() {
+                $ionicSideMenuDelegate.toggleRight();
+            };
         }
     };
 });

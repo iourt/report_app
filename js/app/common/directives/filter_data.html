@@ -1,0 +1,36 @@
+<div>
+    <ion-footer-bar class="mod_footer_filter" ngd-click="showFilter($event)" selector="div">
+        <div data-type="time" ng-class="{current: Child.Tab=='time'}">
+            时间
+            <i>{{Filter.TimeText}}</i>
+        </div>
+        <div data-type="cycle" ng-class="{current: Child.Tab=='cycle'}">
+            周期
+            <i>{{Filter.CycleText}}</i>
+        </div>
+        <div data-type="client" ng-class="{current: Child.Tab=='client'}">
+            客户端
+            <i>{{Filter.ClientText}}</i>
+        </div>
+    </ion-footer-bar>
+
+    <div ng-click="hideFilter($event)" class="mod_filter_list" ng-class="{t_show: Child.Show, t_hide: !Child.Show}">
+        <ul ngd-click="setFilter($event)" selector="li" ng-class="{tshow: Child.Tab=='time', thide: Child.Tab!='time'}">
+            <li data-type="today" ng-class="{current: Filter.Time=='today'}" ng-if="!hideToday">今天</li>
+            <li data-type="yesterday" ng-class="{current: Filter.Time=='yesterday'}"  ng-if="!hideYesterday">昨天</li>
+            <li data-type="week" ng-class="{current: Filter.Time=='week'}">最近7天</li>
+            <li data-type="month" ng-class="{current: Filter.Time=='month'}">最近30天</li>
+            <li data-type="custom" ng-class="{current: Filter.Time=='custom'}">自定义时间</li>
+        </ul>
+        <ul ngd-click="setFilter($event)" selector="li" ng-class="{tshow: Child.Tab=='cycle', thide: Child.Tab!='cycle'}">
+            <li data-type="day" ng-class="{current: Filter.Cycle=='day'}">按天</li>
+            <li data-type="week" ng-class="{current: Filter.Cycle=='week'}">按周</li>
+            <li data-type="month" ng-class="{current: Filter.Cycle=='month'}">按月</li>
+        </ul>
+        <ul ngd-click="setFilter($event)" selector="li" ng-class="{tshow: Child.Tab=='client', thide: Child.Tab!='client'}">
+            <li data-type="none" ng-class="{current: !Filter.Client}">不限</li>
+            <li data-type="ios" ng-class="{current: Filter.Client=='ios'}">IOS</li>
+            <li data-type="android" ng-class="{current: Filter.Client=='android'}">Android</li>
+        </ul>
+    </div>
+</div>

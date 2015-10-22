@@ -93,7 +93,8 @@ $border:  #ddd;
 // box
 @mixin box(
     $align: null,
-    $pack: null
+    $pack: null,
+    $orient: null
 ){
     display: -webkit-box;
 
@@ -103,6 +104,10 @@ $border:  #ddd;
 
     @if $pack != null {
         -webkit-box-pack: $pack;
+    }
+
+    @if $orient != null {
+        -webkit-box-orient: $orient;
     }
 }
 @mixin box-flex() {

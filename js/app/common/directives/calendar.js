@@ -11,6 +11,7 @@ angular.module('Huijm')
         restrict: 'E',
         replace: true,
         require: '?ngModel',
+        scope: {},
         templateUrl: 'common/directives/calendar.html',
         // controller: function ($scope, $element, $attrs) {},
         link: function ($scope, $element, $attrs, ngModel) {

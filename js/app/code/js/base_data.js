@@ -10,11 +10,7 @@ angular.module('Huijm')
     ShowTime,
     widget
 ){
-    $scope.toggleRightSideMenu = function() {
-        $ionicSideMenuDelegate.toggleRight();
-    };
-
-    $scope.items = [1,2,2,3,33,3,3,3,3,3,3,3,3,3];
+    var time = new Date().getTime();
 
     $scope.Cate = {
         'id': 1,
@@ -22,6 +18,15 @@ angular.module('Huijm')
         'cate_2': '注册用户',
         'cate_3': '认证用户',
         'cate_4': '激活小区'
+    };
+
+    $scope.Post = {
+        Filter: {
+            StartTime: ShowTime.getDay({time: time, day: -6}).target,
+            EndTime: ShowTime.getDay({time: time, day: -6}).source,
+            Cycle: 'day',
+            Client: ''
+        }
     };
 
     // 筛选项
@@ -47,12 +52,17 @@ angular.module('Huijm')
         Y: []
     };
 
+    $scope.CustomTime = ($scope.Post.Filter.StartTime == $scope.Post.Filter.EndTime) ? $scope.Post.Filter.StartTime : $scope.Post.Filter.StartTime+'~'+$scope.Post.Filter.EndTime;
+
+
     // $scope.Page.X = (angular.element(document.querySelector('body')).width()-80)+'px';
 
     // 获取数据
     $scope.getData = function () {
-        var starttime = ShowTime.getFormatDate($scope.Page.StartTime),
-            endtime = ShowTime.getFormatDate($scope.Page.EndTime);
+        var starttime = ShowTime.getFormatDate($scope.Post.Filter.StartTime),
+            endtime = ShowTime.getFormatDate($scope.Post.Filter.EndTime);
+
+        $scope.CustomTime = ($scope.Post.Filter.StartTime == $scope.Post.Filter.EndTime) ? $scope.Post.Filter.StartTime : $scope.Post.Filter.StartTime+'~'+$scope.Post.Filter.EndTime;
 
         widget.ajaxRequest({
             scope: $scope,
@@ -60,8 +70,10 @@ angular.module('Huijm')
             data: {
                 st: starttime+' 00:00:00',
                 et: endtime+' 23:59:59',
-                period: $scope.Filter.TimeType,
-                os: $scope.Filter.Client
+                period: $scope.Post.Filter.Cycle,
+                os: $scope.Post.Filter.Client
+                // period: $scope.PostFilter.TimeType,
+                // os: $scope.Filter.Client
             },
             success: function (res) {
                 $scope.DataList.Basic = [];
@@ -152,6 +164,27 @@ angular.module('Huijm')
             series: $scope.DataList.Y
         });
     };
+
+    $scope.$watch('Post.Filter', function (newValue, oldValue, scope) {
+        $timeout(function() {
+            $scope.getData();
+        }, 250);
+    }, true);
+
+    $scope.$watch('Page.Calendar', function () {
+        if ($scope.Page.Calendar) {
+            $scope.Post.Filter.StartTime = $scope.Page.Calendar.prev;
+            $scope.Post.Filter.EndTime   = $scope.Page.Calendar.next || $scope.Page.Calendar.prev;
+
+            // $scope.Page.TimeType = 'calendar';
+            // $scope.Page.TimeText = $scope.Page.Calendar.next ? $scope.Page.Calendar.prev+'~'+$scope.Page.Calendar.next : $scope.Page.Calendar.prev;
+            // $scope.Page.TimeText = $scope.Page.Calendar.next ? $scope.Page.StartTime+'~'+$scope.Page.EndTime : $scope.Page.StartTime;
+            
+            $timeout(function() {
+                $scope.getData();
+            }, 100);
+        }
+    });
 
 
     // $timeout(function(){

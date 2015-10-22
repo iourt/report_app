@@ -25,20 +25,18 @@
                     </ul>
                 </div>
 
-                <div class="mod_blank" ng-class="{mb10: View=='word'}">
+                <!-- <div class="mod_blank" ng-class="{mb10: View=='word'}">
                     <h2>筛选条件<i>{{Page.TimeText}}</i></h2>
 
                     <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
                     <filter-bar type="data" callback="getData"></filter-bar>
-                </div>
+                </div> -->
                 <div id="chart" ng-show="View == 'photo'"></div>
 
-                <!-- <div id="chart" style="width:{{Page.X}}"></div> -->
-
                 <div class="mod_blank">
-                    <h2>数据明细</h2>
+                    <h2>用户数据明细<i>{{CustomTime}}</i></h2>
 
-                    <div class="list_data" ng-if="View == 'word'">
+                    <!-- <div class="list_data" ng-if="View == 'word'">
                         <dl ng-repeat="(k, v) in DataList.List track by $index">
                             <dt>{{v.date}}</dt>
                             <dd>
@@ -62,22 +60,22 @@
                                 </div>
                             </dd>
                         </dl>
-                    </div>
+                    </div> -->
 
-                    <dl class="list_table" ng-if="View == 'photo'">
+                    <dl class="list_table">
                         <dt>
                             <p style="width:90px;">日期</p>
-                            <p>激活用户<i>{{a1}}</i></p>
-                            <p>注册用户<i>{{a2}}</i></p>
-                            <p>认证用户<i>{{a3}}</i></p>
-                            <p>开通小区<i>{{a4}}</i></p>
+                            <p>激活<i>{{a1}}</i></p>
+                            <p>注册<i>{{a2}}</i></p>
+                            <p>认证<i>{{a3}}</i></p>
+                            <!-- <p>开通小区<i>{{a4}}</i></p> -->
                         </dt>
                         <dd ng-repeat="(k, v) in DataList.List track by $index">
                             <p>{{v.date}}</p>
                             <p >{{v.cate_1}}</p>
                             <p>{{v.cate_2}}</p>
                             <p>{{v.cate_3}}</p>
-                            <p>{{v.cate_4}}</p>
+                            <!-- <p>{{v.cate_4}}</p> -->
                         </dd>
                     </dl>
 
@@ -102,8 +100,10 @@
                     </ion-scroll> -->
                 </div>
 
-                <div class="h20"></div>
+                <div class="h50"></div>
             </ion-content>
+
+            <filter-data ng-model="Post.Filter" hide="2" start="{{Post.Filter.StartTime}}" end="{{Post.Filter.EndTime}}" tab=""></filter-data>
         </ion-view>
     </ion-side-menu-content>
 
