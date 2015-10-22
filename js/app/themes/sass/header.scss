@@ -99,7 +99,8 @@
 
 
 .mod_footer {
-    background: #eee;
+    background: #f8f8f8;
+    @include border-half($type: top);
     h1 {
         font-size: 12px !important;
         font-weight: normal !important;
@@ -120,8 +121,9 @@
 
 .mod_footer_filter {
     padding: 0;
-    background: #eee;
+    background: #f8f8f8;
     z-index: 1000;
+    @include border-half($type: top);
     @include box($align: center);
     div {
         width: 0;

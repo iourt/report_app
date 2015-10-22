@@ -137,7 +137,7 @@ angular.module('Huijm', [
     // 报表
     .state('report.base-data-view', {
         url: '/base/data/view.htm',
-        templateUrl: 'code/tp/base_data_view.html',
+        templateUrl: 'code/tp/view.html',
         controller: 'tBaseDataView'
     })
 
@@ -150,7 +150,7 @@ angular.module('Huijm', [
     // 报表
     .state('report.base-user-view', {
         url: '/base/user/view.htm',
-        templateUrl: 'code/tp/base_user_view.html',
+        templateUrl: 'code/tp/view.html',
         controller: 'tBaseUserView'
     })
 

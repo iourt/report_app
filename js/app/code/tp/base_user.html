@@ -1,14 +1,14 @@
-<header-bar title="活跃用户"></header-bar>
+<header-bar title="活跃用户" right="报表|toRight"></header-bar>
 
 <ion-side-menus enable-menu-with-back-views="true">
     <!-- Left menu -->
     <!-- <ion-side-menu side="left"></ion-side-menu> -->
 
     <ion-side-menu-content>
-
         <ion-view>
-            <ion-content overflow-scroll="true" class="mod_wrapper">
-                <div class="mod_blank mb10">
+            <!-- <ion-content overflow-scroll="true" class="mod_wrapper"> -->
+            <ion-content class="mod_wrapper">
+                <!-- <div class="mod_blank mb10">
                     <tab-view></tab-view>
                 </div>
                 
@@ -17,15 +17,15 @@
                     <tab-time mid="show" right="show" hide="1" callback="getData"></tab-time>
                     <filter-bar type="data" class="mb10" callback="getData"></filter-bar>
                 </div>
-                <div id="chart" ng-show="View == 'photo'"></div>
+                <div id="chart" ng-show="View == 'photo'"></div> -->
 
                 <div class="mod_blank mb10">
-                    <h2>数据明细</h2>
+                    <h2>数据明细<i>{{CustomTime}}</i></h2>
                     <dl class="list_table">
                         <dt>
                             <p>时间</p>
-                            <p>活跃用户(人数)</p>
-                            <p>活跃度(百分比)</p>
+                            <p>活跃用户<i>人数</i></p>
+                            <p>活跃度<i>百分比</i></p>
                         </dt>
                         <dd ng-repeat="(k, v) in DataList.List track by $index">
                             <p>{{v.date}}</p>
@@ -35,9 +35,11 @@
                     </dl>
                 </div>
 
-                <div class="h20"></div>
+                <div class="h50"></div>
             </ion-content>
         </ion-view>
+
+        <filter-data ng-model="Post.Filter" hide="1" start="{{Post.Filter.StartTime}}" end="{{Post.Filter.EndTime}}" route="base-data-view"></filter-data>
     </ion-side-menu-content>
 
     <!-- Right menu -->
