@@ -15,13 +15,6 @@ angular.module('Huijm')
     //     $ionicSideMenuDelegate.toggleRight();
     // };
 
-    $scope.toRight = function () {
-        toJump({
-            direction: 'forward',
-            router: 'report.base-user-view'
-        });
-    };
-
     $scope.Cate = {
         'activeUser': '活跃用户(人数)',
         'activePer': '活跃度(百分比)'
@@ -48,7 +41,7 @@ angular.module('Huijm')
     $scope.Post = {
         Filter: {
             StartTime: ShowTime.getDay({time: time, day: -1}).target,
-            EndTime: ShowTime.getDay({time: time, day: -1}).source,
+            EndTime: ShowTime.getDay({time: time, day: -1}).target,
             Cycle: 'day',
             Client: ''
         }
@@ -142,80 +135,95 @@ angular.module('Huijm')
     }
 
 
-    $scope.showChart = function () {
-        $('#chart').highcharts({
-            chart: {
-                zoomType: 'xy'
-            },
-            title: {
-                text: $scope.Page.TimeText,
-                align: 'right',
-                margin: 20,
-                style: {
-                    fontSize: '12px',
-                    color: '#999'
-                }
-            },
-            xAxis: [ {categories: $scope.DataList.X} ],
-            yAxis: [
-                { // Primary yAxis
-                    title: {
-                        text: '活跃用户(人数)',
-                        style: { color: '#000' }
-                    },
-                    labels: {
-                        format: '{value}',
-                        style: { color: '#000' }
-                    }
-                },
-                { // Secondary yAxis
-                    title: {
-                        text: '活跃度(百分比)',
-                        style: { color: '#f30' }
-                    },
-                    labels: {
-                        format: '{value}%',
-                        style: { color: '#f30' }
-                    },
-                    opposite: true
-                }
-            ],
-            tooltip: {
-                shared: true
-            },
-            // legend: {
-            //     layout: 'horizontal',
-            //     align: 'left',
-            //     x: 0,
-            //     verticalAlign: 'top',
-            //     y: 0,
-            //     padding: 0,
-            //     floating: true,
-            //     backgroundColor: '#fff'
-            // },
-            credits:{
-                 enabled: false
-            },
-            series: [
-                {
-                    name: '活跃用户(人数)',
-                    color: '#000',
-                    type: 'spline',
-                    data: $scope.DataList.Y[0],
-                    // data: [2],
-                    tooltip: { valueSuffix: '人' }
-                },
-                {
-                    name: '活跃度(百分比)',
-                    color: '#f30',
-                    // type: 'column',
-                    type: 'spline',
-                    yAxis: 1,
-                    data: $scope.DataList.Y[1],
-                    tooltip: { valueSuffix: '%' }
+    // $scope.showChart = function () {
+    //     $('#chart').highcharts({
+    //         chart: {
+    //             zoomType: 'xy'
+    //         },
+    //         title: {
+    //             text: $scope.Page.TimeText,
+    //             align: 'right',
+    //             margin: 20,
+    //             style: {
+    //                 fontSize: '12px',
+    //                 color: '#999'
+    //             }
+    //         },
+    //         xAxis: [ {categories: $scope.DataList.X} ],
+    //         yAxis: [
+    //             { // Primary yAxis
+    //                 title: {
+    //                     text: '活跃用户(人数)',
+    //                     style: { color: '#000' }
+    //                 },
+    //                 labels: {
+    //                     format: '{value}',
+    //                     style: { color: '#000' }
+    //                 }
+    //             },
+    //             { // Secondary yAxis
+    //                 title: {
+    //                     text: '活跃度(百分比)',
+    //                     style: { color: '#f30' }
+    //                 },
+    //                 labels: {
+    //                     format: '{value}%',
+    //                     style: { color: '#f30' }
+    //                 },
+    //                 opposite: true
+    //             }
+    //         ],
+    //         tooltip: {
+    //             shared: true
+    //         },
+    //         // legend: {
+    //         //     layout: 'horizontal',
+    //         //     align: 'left',
+    //         //     x: 0,
+    //         //     verticalAlign: 'top',
+    //         //     y: 0,
+    //         //     padding: 0,
+    //         //     floating: true,
+    //         //     backgroundColor: '#fff'
+    //         // },
+    //         credits:{
+    //              enabled: false
+    //         },
+    //         series: [
+    //             {
+    //                 name: '活跃用户(人数)',
+    //                 color: '#000',
+    //                 type: 'spline',
+    //                 data: $scope.DataList.Y[0],
+    //                 // data: [2],
+    //                 tooltip: { valueSuffix: '人' }
+    //             },
+    //             {
+    //                 name: '活跃度(百分比)',
+    //                 color: '#f30',
+    //                 // type: 'column',
+    //                 type: 'spline',
+    //                 yAxis: 1,
+    //                 data: $scope.DataList.Y[1],
+    //                 tooltip: { valueSuffix: '%' }
 
-                }
-            ]
+    //             }
+    //         ]
+    //     });
+    // };
+
+
+    // 去查看报表
+    $scope.toRight = function () {
+        $rootScope.ViewReport = {
+            Title: $scope.CustomTime,
+            DataList: $scope.DataList
+        };
+
+        toJump({
+            direction: 'forward',
+            router: 'report.base-user-view'
         });
     };
+
 });

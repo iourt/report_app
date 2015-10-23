@@ -168,8 +168,8 @@ angular.module('Huijm')
                         $scope.hideToday = true;
                         $scope.hideYesterday = true;
 
-                        $scope.Filter.StartTime = ShowTime.getDay({time: time, day: -6}).target;
-                        $scope.Filter.EndTime = ShowTime.getDay({time: time, day: -6}).source;
+                        $scope.Filter.StartTime = ShowTime.getDay({time: time, day: -7}).target;
+                        $scope.Filter.EndTime = ShowTime.getDay({time: time, day: -1}).target;
                         $scope.Filter.Time = 'week';
                         $scope.Filter.TimeText = '最近7天';
                     break;
@@ -249,13 +249,13 @@ angular.module('Huijm')
                     break;
 
                     case 'week':
-                        $scope.Filter.StartTime = ShowTime.getDay({time: time, day: -6}).target;
-                        $scope.Filter.EndTime = ShowTime.getDay({time: time, day: -6}).source;
+                        $scope.Filter.StartTime = ShowTime.getDay({time: time, day: -7}).target;
+                        $scope.Filter.EndTime = ShowTime.getDay({time: time, day: -1}).target;
                     break;
 
                     case 'month':
-                        $scope.Filter.StartTime = ShowTime.getDay({time: time, day: -29}).target;
-                        $scope.Filter.EndTime = ShowTime.getDay({time: time, day: -29}).source;
+                        $scope.Filter.StartTime = ShowTime.getDay({time: time, day: -30}).target;
+                        $scope.Filter.EndTime = ShowTime.getDay({time: time, day: -1}).target;
                     break;
                 };
             }

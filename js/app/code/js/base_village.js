@@ -1,5 +1,5 @@
 angular.module('Huijm')
-.controller('tBaseData', function (
+.controller('tBaseVillage', function (
     $scope,
     $timeout,
     $rootScope,
@@ -24,7 +24,7 @@ angular.module('Huijm')
     $scope.Page = {};
     $scope.Post = {
         Filter: {
-            StartTime: ShowTime.getDay({time: time, day: -7}).target,
+            StartTime: ShowTime.getDay({time: time, day: -6}).target,
             EndTime: ShowTime.getDay({time: time, day: -1}).target,
             Cycle: 'day',
             Client: ''
@@ -96,6 +96,8 @@ angular.module('Huijm')
                         };
                     });
 
+                    console.log(arr);
+
                     // angular.forEach(arr['cate_1']);
                     $scope.a1 = widget.getSum(arr['cate_1']),
                     $scope.a2 = widget.getSum(arr['cate_2']),
@@ -105,22 +107,22 @@ angular.module('Huijm')
                     
                     $scope.DataList.X = arr['date'].reverse();
                     $scope.DataList.Y = [
-                        {
-                            name: '激活用户',
-                            data: arr['cate_1'].reverse()
-                        },
-                        {
-                            name: '注册用户',
-                            data: arr['cate_2'].reverse()
-                        },
-                        {
-                            name: '认证用户',
-                            data: arr['cate_3'].reverse()
-                        }
                         // {
-                        //     name: '激活小区',
-                        //     data: arr['cate_4'].reverse()
-                        // }
+                        //     name: '激活用户',
+                        //     data: arr['cate_1'].reverse()
+                        // },
+                        // {
+                        //     name: '注册用户',
+                        //     data: arr['cate_2'].reverse()
+                        // },
+                        // {
+                        //     name: '认证用户',
+                        //     data: arr['cate_3'].reverse()
+                        // },
+                        {
+                            name: '激活小区',
+                            data: arr['cate_4'].reverse()
+                        }
                     ];
                 }
 

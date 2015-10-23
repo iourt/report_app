@@ -8,42 +8,16 @@
         <ion-view>
             <!-- <ion-content class="mod_wrapper" delegate-handle="mainScroll"> -->
             <ion-content class="mod_wrapper">
-
-                <h2>总体数据</h2>
-                <div class="mod_black mb10">
-                    <ul class="mod_table">
-                        <li ng-repeat="(k, v) in DataList.Basic track by $index">
-                            <div>
-                                <p>{{v.name}}</p>
-                                <p>{{v.num}}</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- <div class="mod_blank" ng-class="{mb10: View=='word'}">
-                    <h2>筛选条件<i>{{Page.TimeText}}</i></h2>
-
-                    <tab-time mid="show" right="show" hide="2" callback="getData"></tab-time>
-                    <filter-bar type="data" callback="getData"></filter-bar>
-                </div> -->
-
-                <h2>用户数据明细<i>{{CustomTime}}</i></h2>
+                <h2>小区数据明细<i>{{CustomTime}}</i></h2>
 
                 <dl class="list_table">
                     <dt>
                         <p style="width:90px;">日期</p>
-                        <p>激活<i>{{a1}}</i></p>
-                        <p>注册<i>{{a2}}</i></p>
-                        <p>认证<i>{{a3}}</i></p>
-                        <!-- <p>开通小区<i>{{a4}}</i></p> -->
+                        <p>开通小区<i>{{a4}}</i></p>
                     </dt>
                     <dd ng-repeat="(k, v) in DataList.List track by $index">
                         <p>{{v.date}}</p>
-                        <p >{{v.cate_1}}</p>
-                        <p>{{v.cate_2}}</p>
-                        <p>{{v.cate_3}}</p>
-                        <!-- <p>{{v.cate_4}}</p> -->
+                        <p>{{v.cate_4}}</p>
                     </dd>
                 </dl>
 

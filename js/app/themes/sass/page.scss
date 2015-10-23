@@ -89,14 +89,14 @@ h2 {
     line-height: 30px;
     margin-bottom: 10px;
     font-size: 14px;
-    font-weight: normal;
+    // font-weight: normal;
     // background: #eee;
     // color: $green;
     &:before {
-        width: 3px;
+        width: 6px;
         display: inline-block;
         content: "";
-        background: #333;
+        background: $blue;
         height: 20px;
         vertical-align: middle;
         margin-right: 5px;
@@ -183,6 +183,7 @@ h2 {
             padding: 10px;
             background: #f8f8f8;
             p {
+                font-size: 18px;
                 line-height: 20px;
                 &:nth-child(1) {
                     color: #aaa;

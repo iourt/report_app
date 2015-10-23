@@ -153,6 +153,17 @@ angular.module('Huijm', [
         templateUrl: 'code/tp/view.html',
         controller: 'tBaseUserView'
     })
+    .state('report.base-village', {
+        url: '/base/village.htm',
+        templateUrl: 'code/tp/base_village.html',
+        controller: 'tBaseVillage'
+    })
+    // 报表
+    .state('report.base-village-view', {
+        url: '/base/village/view.htm',
+        templateUrl: 'code/tp/view.html',
+        controller: 'tBaseVillageView'
+    })
 
 
     // $ionicConfigProvider.views.swipeBackEnabled(true);

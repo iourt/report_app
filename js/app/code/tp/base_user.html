@@ -19,21 +19,19 @@
                 </div>
                 <div id="chart" ng-show="View == 'photo'"></div> -->
 
-                <div class="mod_blank mb10">
-                    <h2>数据明细<i>{{CustomTime}}</i></h2>
-                    <dl class="list_table">
-                        <dt>
-                            <p>时间</p>
-                            <p>活跃用户<i>人数</i></p>
-                            <p>活跃度<i>百分比</i></p>
-                        </dt>
-                        <dd ng-repeat="(k, v) in DataList.List track by $index">
-                            <p>{{v.date}}</p>
-                            <p>{{v.activeUser}}</p>
-                            <p>{{v.activePer}}%</p>
-                        </dd>
-                    </dl>
-                </div>
+                <h2>数据明细<i>{{CustomTime}}</i></h2>
+                <dl class="list_table">
+                    <dt>
+                        <p>时间</p>
+                        <p>活跃用户<i>人数</i></p>
+                        <p>活跃度<i>百分比</i></p>
+                    </dt>
+                    <dd ng-repeat="(k, v) in DataList.List track by $index">
+                        <p>{{v.date}}</p>
+                        <p>{{v.activeUser}}</p>
+                        <p>{{v.activePer}}%</p>
+                    </dd>
+                </dl>
 
                 <div class="h50"></div>
             </ion-content>
