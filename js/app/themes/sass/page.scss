@@ -25,10 +25,11 @@
 }
 
 .mod_bg {
-    background-image: url(images/bg11.jpg);
-    background-repeat: no-repeat;
-    background-position: right 0;
-    background-size: auto 100%;
+    // background-image: url(images/bg11.jpg);
+    // background-repeat: no-repeat;
+    // background-position: right 0;
+    // background-size: auto 100%;
+    background: $blue;
     &.t_bg {
         background-size: 200% auto;
     }
@@ -47,7 +48,7 @@
         text-align: center;
         margin: 0 5px;
         // background: #eee;
-        padding: 30px 10px 10px;
+        padding: 10px;
         line-height: 30px;
         color: #fff;
 
@@ -57,7 +58,7 @@
 
         @include border-half($type: all, $color: white);
         @include bottom-shadow();
-        @include icon($elem: before, $display: block, $color: #fff, $size: 60px, $mb: 10px, $line: 30px);
+        @include icon($elem: before, $display: block, $color: #fff, $size: 50px, $line: 50px);
         &.icon_base_data:before {
             content: "\f471";
         }
