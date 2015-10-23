@@ -125,47 +125,17 @@ angular.module('Huijm')
                         }
                     ];
                 }
-
-                // $scope.showChart();
             }
         });
     };
-
-
-    // $scope.showChart = function () {
-    //     $('#chart').highcharts({
-    //         chart: {
-    //             // renderTo : 'chart',
-    //             type: 'spline'
-    //         },
-    //         title: {
-    //             text: $scope.Page.TimeText,
-    //             align: 'right',
-    //             margin: 20,
-    //             style: {
-    //                 fontSize: '12px',
-    //                 color: '#999'
-    //             }
-    //         },
-    //         xAxis: {
-    //             categories: $scope.DataList.X
-    //         },
-
-    //         yAxis: {
-    //             title: {
-    //                 text: '基础数据统计分析'
-    //             }
-    //         },
-    //         credits:{
-    //              enabled: false
-    //         },
-
-    //         series: $scope.DataList.Y
-    //     });
-    // };
+    
+    $scope.getData();
 
     // 监控筛选的改变
     $scope.$watch('Post.Filter', function (newValue, oldValue, scope) {
+        if (newValue.Cycle==oldValue.Cycle && newValue.Client==oldValue.Client && newValue.Time==oldValue.Time) return;
+        if (newValue.Cycle==oldValue.Cycle && newValue.Client==oldValue.Client && newValue.Time=='custom') return;
+        
         $timeout(function() {
             $scope.getData();
         }, 250);
